@@ -81,7 +81,6 @@
     //推荐主页
     MainViewController * main = [[MainViewController alloc]init];
     
-    
     [main setTitle:@"推荐"];
     //视频收藏页面
     CollectViewController * collect = [[CollectViewController alloc]init];
