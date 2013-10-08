@@ -19,4 +19,7 @@
  */
 //创建一个代理
 @property(nonatomic,assign)id<Banner_viewDelegate>delegate;
+
+@property (nonatomic,retain)NSArray * inforArry;//接受的字典详细信息
+-(void)initSubview;
 @end

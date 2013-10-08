@@ -15,6 +15,9 @@
 #import "RecordViewController.h"
 #import "SearchViewController.h"
 #import "MyView.h"
+
+#import "SetViewController.h"
+#import "LandingViewController.h"
 @interface RootViewController ()
 @property(nonatomic,retain)UIPopoverController * MyPopoverController;
 @end
@@ -131,7 +134,12 @@
 }
 -(void)showSettingPage
 {
-    
+    SetViewController * set = [[SetViewController alloc]init];
+    UINavigationController * setNVC = [[UINavigationController alloc]initWithRootViewController:set];
+    [setNVC setModalPresentationStyle:UIModalPresentationFormSheet];
+    [self presentModalViewController:setNVC animated:YES];
+    [set release];
+    [setNVC release];
     
 }
 -(UISplitViewController*)createCategoryViewControllerWitnName:(NSString*)name
@@ -154,6 +162,15 @@
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
 #warning 配置头
+    
+#warning 检测是否登陆
+    LandingViewController * land = [[LandingViewController alloc]init];
+    UINavigationController * landNVC = [[UINavigationController alloc]initWithRootViewController:land];
+    [landNVC setModalPresentationStyle:UIModalPresentationFormSheet];
+    [self presentModalViewController:landNVC animated:YES];
+    [land release];
+    [landNVC release];
+
     [self.navigationItem setTitle:viewController.title];
     
 }
