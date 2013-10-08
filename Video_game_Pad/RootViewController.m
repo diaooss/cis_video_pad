@@ -26,32 +26,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        //推荐主页
-        MainViewController * main = [[MainViewController alloc]init];
-        
-        [main setTitle:@"推荐"];
-        //视频收藏页面
-        CollectViewController * collect = [[CollectViewController alloc]init];
-        [collect setTitle:@"我的收藏"];
-        //我的关注
-        AttentionViewController * attention = [[AttentionViewController alloc]init];
-        [attention setTitle:@"我的关注"];
-        //
-        NSArray * nameArry = [NSArray arrayWithObjects:main,
-                              [self createCategoryViewControllerWitnName:@"Dota"],
-                              [self createCategoryViewControllerWitnName:@"英雄联盟"],
-                              [self createCategoryViewControllerWitnName:@"Dota2"],
-                              [self createCategoryViewControllerWitnName:@"星际争霸2"],
-                              [self createCategoryViewControllerWitnName:@"魔兽世界"],
-                              collect,
-                              attention,
-                              nil];
-        [self setViewControllers:nameArry];
-        [main release];
-        [collect release];
+
 
     }
-    [self setSelectedIndex:3];
     [self setDelegate:self];
     return self;
 }
@@ -97,6 +74,35 @@
     [barItem release];
     [setBarItem release];
     
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //推荐主页
+    MainViewController * main = [[MainViewController alloc]init];
+    
+    
+    [main setTitle:@"推荐"];
+    //视频收藏页面
+    CollectViewController * collect = [[CollectViewController alloc]init];
+    [collect setTitle:@"我的收藏"];
+    //我的关注
+    AttentionViewController * attention = [[AttentionViewController alloc]init];
+    [attention setTitle:@"我的关注"];
+    //
+    NSArray * nameArry = [NSArray arrayWithObjects:main,
+                          [self createCategoryViewControllerWitnName:@"Dota"],
+                          [self createCategoryViewControllerWitnName:@"英雄联盟"],
+                          [self createCategoryViewControllerWitnName:@"Dota2"],
+                          [self createCategoryViewControllerWitnName:@"星际争霸2"],
+                          [self createCategoryViewControllerWitnName:@"魔兽世界"],
+                          collect,
+                          attention,
+                          nil];
+    [self setViewControllers:nameArry animated:YES];
+    [main release];
+    [collect release];
+     [self setSelectedIndex:7];
 }
 -(void)makeRecordView
 {
@@ -148,7 +154,7 @@
 #pragma mark--UITabBarController代理
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
-//#warning 配置头
+#warning 配置头
     [self.navigationItem setTitle:viewController.title];
     
 }

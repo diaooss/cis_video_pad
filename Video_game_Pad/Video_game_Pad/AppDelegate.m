@@ -20,7 +20,6 @@
 {
     RootViewController * root = [[RootViewController alloc]init];
     UINavigationController * rootNVC = [[UINavigationController alloc]initWithRootViewController:root];
-    rootNVC.navigationItem.title = @"哈哈";
     [self.window setRootViewController:rootNVC];
    
     [root release];
@@ -33,7 +32,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    //调用初始化控制器
+//调用初始化控制器
     [self initViewController];
     return YES;
 }
