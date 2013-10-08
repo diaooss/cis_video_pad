@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20515DEB1803DAAB00708A55 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20515DEA1803DAAB00708A55 /* SearchViewController.m */; };
 		206CC72517F9067B00E67B57 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 206CC72417F9067B00E67B57 /* JSONKit.m */; };
 		206CC73A17F9068A00E67B57 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 206CC72717F9068A00E67B57 /* ASIAuthenticationDialog.m */; };
 		206CC73B17F9068A00E67B57 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 206CC72A17F9068A00E67B57 /* ASIDataCompressor.m */; };
@@ -67,6 +68,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20515DE91803DAAB00708A55 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		20515DEA1803DAAB00708A55 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		206CC72317F9067B00E67B57 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		206CC72417F9067B00E67B57 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		206CC72617F9068A00E67B57 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIAuthenticationDialog.h; path = ../ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -197,6 +200,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20515DE81803DA8700708A55 /* Search-view */ = {
+			isa = PBXGroup;
+			children = (
+				20515DE91803DAAB00708A55 /* SearchViewController.h */,
+				20515DEA1803DAAB00708A55 /* SearchViewController.m */,
+			);
+			name = "Search-view";
+			sourceTree = "<group>";
+		};
 		206CC72117F905B500E67B57 /* ASI */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +407,7 @@
 		23354C5217E938700067385A /* Video_game_Pad */ = {
 			isa = PBXGroup;
 			children = (
+				20515DE81803DA8700708A55 /* Search-view */,
 				20F8956817F96E460031C786 /* MovieDetailView */,
 				206CC77F17F90A2700E67B57 /* Models */,
 				23354C9C17E985C60067385A /* Record_view */,
@@ -637,6 +650,7 @@
 				206CC77B17F9084800E67B57 /* ASIS3Request.m in Sources */,
 				206CC77C17F9084800E67B57 /* ASIS3ServiceRequest.m in Sources */,
 				20F8956B17F96E730031C786 /* MovieDetailViewController.m in Sources */,
+				20515DEB1803DAAB00708A55 /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

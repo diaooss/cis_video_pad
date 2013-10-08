@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface MainViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+#import "RequestTools.h"
+@interface MainViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,myHttpRequestDelegate>
 {
     UITableView *mainTab;
+    RequestTools*recommendRequest;//推荐
+    
     
 }
+@property(nonatomic,retain)NSArray *bannerArry;
+@property(nonatomic,retain)NSArray *tabArry;
 
 @end

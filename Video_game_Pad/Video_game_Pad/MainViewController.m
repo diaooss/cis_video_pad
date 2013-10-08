@@ -10,11 +10,20 @@
 #import "Banner_view.h"
 #import "Tools_Header.h"
 #import "Cell.h"
+#import "RequestTools.h"
+#import "MyNsstringTools.h"
 @interface MainViewController ()
 
 @end
 
 @implementation MainViewController
+- (void)dealloc
+{
+    self.bannerArry = nil;
+    self.tabArry = nil;
+    [recommendRequest release];
+    [super dealloc];
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,7 +36,17 @@
 {
     self.view = [[[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     [self.view setBackgroundColor:[UIColor yellowColor]];
+    [self startRequetsRecommendInfo];
 
+    
+}
+-(void)startRequetsRecommendInfo
+{
+
+    recommendRequest  = [[RequestTools alloc] init];
+    recommendRequest.delegate = self;
+    [recommendRequest requestWithUrl_Asynchronous:[MyNsstringTools groupStrByAStrArray:[NSArray arrayWithObjects:@"http://121.199.57.44:88/WebServer/HomeData.ashx", nil]]];
+    
     
 }
 - (void)viewDidLoad
@@ -64,6 +83,7 @@
     headerView.backgroundColor = [UIColor clearColor];
     
     Banner_view * banner = [[Banner_view alloc]initWithFrame:CGRectMake(0, 0, 1024, self.view.width/4) ];
+    
     [headerView addSubview:banner];
 
     mainTab.tableHeaderView = headerView;
@@ -91,6 +111,17 @@
         rootCell = [[[Cell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:detailReuse] autorelease];
     }
     return rootCell;
+}
+#pragma mark--请求回调
+-(void)requestSuccessWithResultDictionary:(NSDictionary *)dic
+{
+    NSLog(@"DIC是%@",dic);
+    self.bannerArry = [dic objectForKey:@"bannerResult"];
+    [mainTab reloadData];
+}
+-(void)requestFailedWithResultDictionary:(NSDictionary *)dic
+{
+    
 }
 - (void)didReceiveMemoryWarning
 {

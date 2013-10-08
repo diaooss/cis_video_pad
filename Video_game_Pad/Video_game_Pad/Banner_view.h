@@ -14,7 +14,6 @@
 
 @end
 @interface Banner_view : UIView<iCarouselDataSource,iCarouselDelegate>
-
 /*
  设置属性....加载图片要求的内容
  */

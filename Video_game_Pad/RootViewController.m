@@ -13,7 +13,7 @@
 #import "CollectViewController.h"
 #import "AttentionViewController.h"
 #import "RecordViewController.h"
-
+#import "SearchViewController.h"
 #import "MyView.h"
 @interface RootViewController ()
 @property(nonatomic,retain)UIPopoverController * MyPopoverController;
@@ -102,7 +102,6 @@
     [self setViewControllers:nameArry animated:YES];
     [main release];
     [collect release];
-     [self setSelectedIndex:7];
 }
 -(void)makeRecordView
 {
@@ -157,6 +156,23 @@
 #warning 配置头
     [self.navigationItem setTitle:viewController.title];
     
+}
+#pragma mark--拉起搜索页面
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar                     // return NO to not become first responder
+{
+    NSLog(@"点击");
+    SearchViewController *seachVc  = [[SearchViewController alloc] init];
+    UINavigationController *searchNavc = [[UINavigationController alloc] initWithRootViewController:seachVc];
+    [self presentModalViewController:searchNavc animated:YES];
+    [seachVc release];
+    [searchNavc release];
+
+    return NO;
+    
+}
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    NSLog(@"点击");
 }
 - (void)didReceiveMemoryWarning
 {
