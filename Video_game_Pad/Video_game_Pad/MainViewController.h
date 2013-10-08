@@ -15,7 +15,8 @@
     
     
 }
+@property(nonatomic,assign)int mark;
 @property(nonatomic,retain)NSArray *bannerArry;
 @property(nonatomic,retain)NSArray *tabArry;
-
+@property(nonatomic,retain)NSDictionary * classDic;
 @end

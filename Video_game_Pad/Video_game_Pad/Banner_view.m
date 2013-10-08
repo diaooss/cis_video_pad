@@ -43,19 +43,19 @@
 }
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
-    return 7;
+    return 5;
 }
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index{
     
     AsynImageView * asimage = [[[AsynImageView alloc]initWithFrame:CGRectMake(0, 0, self.width/2, self.height)] autorelease];
     [asimage setPlaceholderImage:[UIImage imageNamed:@"test.png"]];
-//# warning 配置参数--图片的Url
-    /*
-     配置内容
-     
-     */
+// 配置参数--图片的Url
+    if ([self.inforArry count]>0) {
+        [asimage setImageURL:[[self.inforArry objectAtIndex:index] valueForKey:@"picPath"]];
+        [self.bannerInfors addObject:[[self.inforArry objectAtIndex:index] valueForKey:@"linkUrl"]];
+    }
     //测试配置每一个banner的信息
-    [self.bannerInfors addObject:[NSString stringWithFormat:@"%d",index]];
+    
     return asimage;
 }-(void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
 {

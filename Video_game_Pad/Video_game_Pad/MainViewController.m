@@ -57,7 +57,7 @@
     mainTab.dataSource =  self;
     
     [self.view addSubview:mainTab];
-    NSLog(@"视图宽度:%f,视图高度:%f",self.view.bounds.size.width,self.view.bounds.size.height);
+//    NSLog(@"视图宽度:%f,视图高度:%f",self.view.bounds.size.width,self.view.bounds.size.height);
     
  
 }
@@ -83,9 +83,11 @@
     headerView.backgroundColor = [UIColor clearColor];
     
     Banner_view * banner = [[Banner_view alloc]initWithFrame:CGRectMake(0, 0, 1024, self.view.width/4) ];
+    [banner setInforArry:self.bannerArry];
+    [banner initSubview];
     
     [headerView addSubview:banner];
-
+    
     mainTab.tableHeaderView = headerView;
     [banner release];
 
@@ -94,15 +96,15 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+     NSArray *cateGoryArry = [NSArray arrayWithObjects:@"英雄联盟",@"DOTA",@"DOTA2",@"魔兽争霸3",@"星际大战2", nil];
     if (indexPath.row%2==0) {
         NSString *reuseName = @"reuse";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseName];
         if (cell==nil) {
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseName] autorelease];
         }
-        NSArray *cateGoryArry = [NSArray arrayWithObjects:@"英雄联盟", @"DOTA",@"DOTA2",@"魔兽争霸3",@"星际大战2",nil];
+       
         cell.textLabel.text = [cateGoryArry objectAtIndex:indexPath.row/2];
-
         return cell;
     }
     static NSString *detailReuse = @"reuseDetail";
@@ -110,6 +112,20 @@
     if (rootCell == Nil) {
         rootCell = [[[Cell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:detailReuse] autorelease];
     }
+    //*****************确保重用的cell起始位置不变
+    [rootCell.scrollerView setContentOffset:CGPointMake(0, 0)];
+    //***加载过以后不再加载-------很重要-----
+    if (self.mark>indexPath.row||self.mark==9) {
+        return rootCell;
+    }
+    NSArray * nameArry = [NSArray arrayWithObjects:@"英雄联盟",@"dota",@"dota2",@"魔兽争霸3",@"星际大战2", nil];
+    if ([self.classDic valueForKey:@"dota"]>0) {
+       // NSLog(@"是你有几个数值--%d",[[self.classDic valueForKey:[cateGoryArry objectAtIndex:(indexPath.row-1)/2]]count]);
+       // [rootCell loadInforWithNetArry:[self.classDic valueForKey:@"dota"]];
+        //[rootCell setDelegate:self];
+        self.mark=indexPath.row;
+    }
+
     return rootCell;
 }
 #pragma mark--请求回调
@@ -117,6 +133,7 @@
 {
     NSLog(@"DIC是%@",dic);
     self.bannerArry = [dic objectForKey:@"bannerResult"];
+    [self setClassDic:dic];
     [mainTab reloadData];
 }
 -(void)requestFailedWithResultDictionary:(NSDictionary *)dic
