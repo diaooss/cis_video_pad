@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "RequestTools.h"
-@interface MainViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,myHttpRequestDelegate>
+#import "Cell.h"
+@interface MainViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,myHttpRequestDelegate,CellDelegate>
 {
     UITableView *mainTab;
     RequestTools*recommendRequest;//推荐

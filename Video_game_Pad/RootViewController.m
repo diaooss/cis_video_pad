@@ -18,6 +18,7 @@
 
 #import "SetViewController.h"
 #import "LandingViewController.h"
+#import "UIViewController+MJPopupViewController.h"
 @interface RootViewController ()
 @property(nonatomic,retain)UIPopoverController * MyPopoverController;
 @end
@@ -139,13 +140,11 @@
     [self presentModalViewController:setNVC animated:YES];
     [set release];
     [setNVC release];
-    
 }
 -(UISplitViewController*)createCategoryViewControllerWitnName:(NSString*)name
 {
     CategoryViewController * category = [[CategoryViewController alloc]init];
 //配置tabbar
-    
 //左视图控制器
     ListViewController * list = [[ListViewController alloc] init];
     UISplitViewController * split = [[UISplitViewController alloc]init];
@@ -160,17 +159,19 @@
 #pragma mark--UITabBarController代理
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
-#warning 配置头
     
-#warning 检测是否登陆
-    LandingViewController * land = [[LandingViewController alloc]init];
+    if (tabBarController.selectedIndex>5) {
+        
+        LandingViewController * land = [[LandingViewController alloc]init];
     UINavigationController * landNVC = [[UINavigationController alloc]initWithRootViewController:land];
     [landNVC setModalPresentationStyle:UIModalPresentationFormSheet];
     [self presentModalViewController:landNVC animated:YES];
     [land release];
     [landNVC release];
+    }
 
     [self.navigationItem setTitle:viewController.title];
+        
     
 }
 #pragma mark--拉起搜索页面

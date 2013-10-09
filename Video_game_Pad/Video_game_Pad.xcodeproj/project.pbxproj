@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		20515DEB1803DAAB00708A55 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20515DEA1803DAAB00708A55 /* SearchViewController.m */; };
+		2058889818052553007ABDAD /* MJPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2058889518052553007ABDAD /* MJPopupBackgroundView.m */; };
+		2058889918052553007ABDAD /* UIViewController+MJPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2058889718052553007ABDAD /* UIViewController+MJPopupViewController.m */; };
 		206CC72517F9067B00E67B57 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 206CC72417F9067B00E67B57 /* JSONKit.m */; };
 		206CC73A17F9068A00E67B57 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 206CC72717F9068A00E67B57 /* ASIAuthenticationDialog.m */; };
 		206CC73B17F9068A00E67B57 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 206CC72A17F9068A00E67B57 /* ASIDataCompressor.m */; };
@@ -72,6 +74,10 @@
 /* Begin PBXFileReference section */
 		20515DE91803DAAB00708A55 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		20515DEA1803DAAB00708A55 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		2058889418052553007ABDAD /* MJPopupBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPopupBackgroundView.h; sourceTree = "<group>"; };
+		2058889518052553007ABDAD /* MJPopupBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPopupBackgroundView.m; sourceTree = "<group>"; };
+		2058889618052553007ABDAD /* UIViewController+MJPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MJPopupViewController.h"; sourceTree = "<group>"; };
+		2058889718052553007ABDAD /* UIViewController+MJPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MJPopupViewController.m"; sourceTree = "<group>"; };
 		206CC72317F9067B00E67B57 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		206CC72417F9067B00E67B57 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		206CC72617F9068A00E67B57 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIAuthenticationDialog.h; path = ../ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -213,6 +219,17 @@
 				20515DEA1803DAAB00708A55 /* SearchViewController.m */,
 			);
 			name = "Search-view";
+			sourceTree = "<group>";
+		};
+		2058889318052513007ABDAD /* MYModalView */ = {
+			isa = PBXGroup;
+			children = (
+				2058889418052553007ABDAD /* MJPopupBackgroundView.h */,
+				2058889518052553007ABDAD /* MJPopupBackgroundView.m */,
+				2058889618052553007ABDAD /* UIViewController+MJPopupViewController.h */,
+				2058889718052553007ABDAD /* UIViewController+MJPopupViewController.m */,
+			);
+			name = MYModalView;
 			sourceTree = "<group>";
 		};
 		206CC72117F905B500E67B57 /* ASI */ = {
@@ -445,6 +462,7 @@
 		23354C7417E93B5A0067385A /* thirdSDK */ = {
 			isa = PBXGroup;
 			children = (
+				2058889318052513007ABDAD /* MYModalView */,
 				206CC72217F905BC00E67B57 /* jSONKIT */,
 				206CC72117F905B500E67B57 /* ASI */,
 				23354C7817E93C210067385A /* Asy_image_down */,
@@ -679,6 +697,8 @@
 				20515DEB1803DAAB00708A55 /* SearchViewController.m in Sources */,
 				2374D32218040AA300DB8BC1 /* SetViewController.m in Sources */,
 				2374D32618040AE400DB8BC1 /* LandingViewController.m in Sources */,
+				2058889818052553007ABDAD /* MJPopupBackgroundView.m in Sources */,
+				2058889918052553007ABDAD /* UIViewController+MJPopupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

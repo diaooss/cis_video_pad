@@ -54,8 +54,6 @@
             [self.PicArry addObject:view];
         }
     }
-
-    
 }
 -(void)loadInforWithNetArry:(NSArray *)netArry
 {

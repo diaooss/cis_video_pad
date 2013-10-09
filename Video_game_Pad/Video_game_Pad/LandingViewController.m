@@ -22,15 +22,18 @@
     }
     return self;
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     UIBarButtonItem * bar = [[UIBarButtonItem alloc]initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(viewDisappear)];
     [self.navigationItem setRightBarButtonItem:bar];
     [bar release];
-    [self.view setBackgroundColor:[UIColor blueColor]];
+    [self.view setBackgroundColor:[UIColor grayColor]];
+    self.navigationItem.title = @"登陆";
+    
+    
+    
+    
 }
 //界面消失
 -(void)viewDisappear
@@ -40,7 +43,5 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
 @end

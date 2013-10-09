@@ -19,9 +19,11 @@
 @implementation MainViewController
 - (void)dealloc
 {
+    [mainTab release];
     self.bannerArry = nil;
     self.tabArry = nil;
     [recommendRequest release];
+    self.classDic = nil;
     [super dealloc];
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -36,7 +38,6 @@
 {
     self.view = [[[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     [self.view setBackgroundColor:[UIColor yellowColor]];
-    [self startRequetsRecommendInfo];
 
     
 }
@@ -55,11 +56,12 @@
     mainTab  =[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.height, self.view.width-110) style:UITableViewStylePlain];
     mainTab.delegate = self;
     mainTab.dataSource =  self;
-    
+    mainTab.showsVerticalScrollIndicator = NO;
     [self.view addSubview:mainTab];
 //    NSLog(@"视图宽度:%f,视图高度:%f",self.view.bounds.size.width,self.view.bounds.size.height);
     
- 
+    [self startRequetsRecommendInfo];
+
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -119,12 +121,13 @@
         return rootCell;
     }
     NSArray * nameArry = [NSArray arrayWithObjects:@"英雄联盟",@"dota",@"dota2",@"魔兽争霸3",@"星际大战2", nil];
-    if ([self.classDic valueForKey:@"dota"]>0) {
-       // NSLog(@"是你有几个数值--%d",[[self.classDic valueForKey:[cateGoryArry objectAtIndex:(indexPath.row-1)/2]]count]);
-       // [rootCell loadInforWithNetArry:[self.classDic valueForKey:@"dota"]];
-        //[rootCell setDelegate:self];
-        self.mark=indexPath.row;
+    if (indexPath.row == 3) {
+        NSLog(@"dota是%@",[self.classDic valueForKey:@"dota"]);
+            [rootCell loadInforWithNetArry:[self.classDic valueForKey:@"dota"]];
+        [rootCell setDelegate:self];
     }
+        self.mark=indexPath.row;
+    
 
     return rootCell;
 }
