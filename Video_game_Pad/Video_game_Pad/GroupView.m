@@ -25,7 +25,7 @@
         
         self.asImageView = [[AsynImageView alloc]initWithFrame:CGRectMake(0, 0, mainSize.width, mainSize.height*3/4)];
         _asImageView.backgroundColor = [UIColor blackColor];
-        [_asImageView setPlaceholderImage:[UIImage imageNamed:@"plant1.jpg"]];
+        [_asImageView setPlaceholderImage:[UIImage imageNamed:@"test.png"]];
         [self addSubview:_asImageView];
         [_asImageView release];
         
@@ -57,6 +57,15 @@
         [tap release];
     }
     return self;
+}
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    CGSize mainSize = self.frame.size;
+
+    _asImageView.frame = CGRectMake(0, 0, mainSize.width, mainSize.height*3/4);
+    _timeLabel.frame = CGRectMake(mainSize.width-50, _asImageView.frame.size.height-15, 50, 15);
+    _nameLabel.frame = CGRectMake(0, mainSize.height*3/5, mainSize.width, mainSize.height*2/5);
 }
 -(void)transferVideoID
 {

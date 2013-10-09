@@ -16,6 +16,7 @@
 
 
 @interface Cell : UITableViewCell<GroupViewDelegate>
+
 @property(nonatomic,retain)UIScrollView * scrollerView;//滑动视图---------为cell的重用;;
 @property(nonatomic,retain)NSMutableArray * PicArry;//装载scrollView 的12个子视图
 

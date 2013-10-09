@@ -11,6 +11,7 @@
 #import "MyNsstringTools.h"
 #define padding 20
 #define spacePadding 40
+#import "Tools_Header.h"
 @implementation Cell
 -(void)dealloc
 {
@@ -23,35 +24,29 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.contentView.backgroundColor = [UIColor greenColor];
+       // self.contentView.backgroundColor = [UIColor greenColor];
         self.PicArry = [NSMutableArray arrayWithCapacity:2];
         // Initialization code
 #pragma mark---这个宽度和cell 的宽度一样!!!!!手动添加
-           }
+
+        for (int i=0; i<12; i++) {
+            GroupView * view = [[GroupView alloc]init];
+            [view setDelegate:self];
+            [self.PicArry addObject:view];
+            [view release];
+            [self.contentView addSubview:view];
+        }
+    }
     return self;
 }
 -(void)layoutSubviews
 {
     [super layoutSubviews];
     CGSize mainSize = self.bounds.size;
-
-
-    self.scrollerView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0,mainSize.width, mainSize.height)];
-    [_scrollerView setContentSize:CGSizeMake(mainSize.width, mainSize.height)];
-    _scrollerView.backgroundColor = [UIColor yellowColor];
-           [self.contentView addSubview:_scrollerView];
-    [_scrollerView setPagingEnabled:YES];
-    [_scrollerView release];
-    [_scrollerView setShowsHorizontalScrollIndicator:NO];
-    
-    for (int j=0; j<2; j++) {
-        for (int i=0; i<6; i++) {
-            GroupView * view = [[GroupView alloc]initWithFrame:CGRectMake(padding+170*i, padding+240*j, (mainSize.width-240)/6, 250)];
-            [_scrollerView addSubview:view];
-            [view setTag:100+j*6+i];
-            [view release];
-            [view setDelegate:self];
-            [self.PicArry addObject:view];
+    for (int i=0; i<2; i++) {
+        for (int j=0; j<6; j++) {
+            GroupView * view  = (GroupView *)[self.PicArry objectAtIndex:(i*6+j)];
+            [view setFrame:CGRectMake(padding+170*j, padding+240*i, (mainSize.width-240)/6, 250)];
         }
     }
 }

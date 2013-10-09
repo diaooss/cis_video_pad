@@ -7,12 +7,15 @@
 //
 
 #import "MainViewController.h"
-#import "Banner_view.h"
 #import "Tools_Header.h"
-#import "Cell.h"
 #import "RequestTools.h"
 #import "MyNsstringTools.h"
+
+
+#define degreesToRadinas(x) (M_PI * (x)/180.0)
 @interface MainViewController ()
+{
+}
 
 @end
 
@@ -47,8 +50,6 @@
     recommendRequest  = [[RequestTools alloc] init];
     recommendRequest.delegate = self;
     [recommendRequest requestWithUrl_Asynchronous:[MyNsstringTools groupStrByAStrArray:[NSArray arrayWithObjects:@"http://121.199.57.44:88/WebServer/HomeData.ashx", nil]]];
-    
-    
 }
 - (void)viewDidLoad
 {
@@ -58,7 +59,6 @@
     mainTab.dataSource =  self;
     mainTab.showsVerticalScrollIndicator = NO;
     [self.view addSubview:mainTab];
-//    NSLog(@"视图宽度:%f,视图高度:%f",self.view.bounds.size.width,self.view.bounds.size.height);
     
     [self startRequetsRecommendInfo];
 
@@ -87,6 +87,7 @@
     Banner_view * banner = [[Banner_view alloc]initWithFrame:CGRectMake(0, 0, 1024, self.view.width/4) ];
     [banner setInforArry:self.bannerArry];
     [banner initSubview];
+    [banner setDelegate:self];
     
     [headerView addSubview:banner];
     
@@ -96,6 +97,7 @@
      return [headerView autorelease];
 
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
      NSArray *cateGoryArry = [NSArray arrayWithObjects:@"英雄联盟",@"DOTA",@"DOTA2",@"魔兽争霸3",@"星际大战2", nil];
@@ -113,10 +115,12 @@
     Cell *rootCell = [tableView dequeueReusableCellWithIdentifier:detailReuse];
     if (rootCell == Nil) {
         rootCell = [[[Cell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:detailReuse] autorelease];
+        //[rootCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        //rootCell.transform =CGAffineTransformMakeRotation(degreesToRadinas(90));
     }
-    //*****************确保重用的cell起始位置不变
+//*****************确保重用的cell起始位置不变
     [rootCell.scrollerView setContentOffset:CGPointMake(0, 0)];
-    //***加载过以后不再加载-------很重要-----
+//***加载过以后不再加载-------很重要-----
     if (self.mark>indexPath.row||self.mark==9) {
         return rootCell;
     }
@@ -129,12 +133,26 @@
         self.mark=indexPath.row;
     
 
+    if ([self.classDic valueForKey:[nameArry objectAtIndex:(indexPath.row-1)/2]]>0) {
+        [rootCell loadInforWithNetArry:[self.classDic valueForKey:[nameArry objectAtIndex:(indexPath.row-1)/2]]];
+        [rootCell setDelegate:self];
+        self.mark=indexPath.row;
+    }
     return rootCell;
+}
+#pragma mark--cell的传值代理
+-(void)accessPlayViewControllerWithVideoID:(NSString *)videoID
+{
+    NSLog(@"%@",videoID);
+}
+#pragma mark--banner的传值
+-(void)transferBannerInfor:(NSString *)string
+{
+    NSLog(@"%@",string);
 }
 #pragma mark--请求回调
 -(void)requestSuccessWithResultDictionary:(NSDictionary *)dic
 {
-    NSLog(@"DIC是%@",dic);
     self.bannerArry = [dic objectForKey:@"bannerResult"];
     [self setClassDic:dic];
     [mainTab reloadData];

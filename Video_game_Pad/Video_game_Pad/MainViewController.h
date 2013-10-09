@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "RequestTools.h"
 #import "Cell.h"
-@interface MainViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,myHttpRequestDelegate,CellDelegate>
+#import "Banner_view.h"
+@interface MainViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,myHttpRequestDelegate,CellDelegate,Banner_viewDelegate>
 {
     UITableView *mainTab;
     RequestTools*recommendRequest;//推荐
-    
     
 }
 @property(nonatomic,assign)int mark;

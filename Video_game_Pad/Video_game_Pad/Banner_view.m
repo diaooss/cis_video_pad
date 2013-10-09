@@ -36,6 +36,8 @@
    //创建一个banner动画
     iCarousel * icarView = [[iCarousel alloc]initWithFrame:CGRectMake(0, 0, self.width, self.height)];
     [icarView setDataSource:self];
+//调节出镜的大小
+    [icarView setPerspective:-1.0f/1200.0f];
     [icarView setType:iCarouselTypeRotary];
     [icarView setDelegate:self];
     [icarView setBackgroundColor:[UIColor redColor]];
