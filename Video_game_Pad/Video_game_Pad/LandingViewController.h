@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LandingViewController : UIViewController
+@interface LandingViewController : UIViewController<UITextFieldDelegate>
+{
+    UITextField *eMailTextF;//邮箱
+    UITextField *pswTextF;//密码
+    
+    
+    
+}
+
+
+
+
 
 @end

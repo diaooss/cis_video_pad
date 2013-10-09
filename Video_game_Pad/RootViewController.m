@@ -138,6 +138,7 @@
     UINavigationController * setNVC = [[UINavigationController alloc]initWithRootViewController:set];
     [setNVC setModalPresentationStyle:UIModalPresentationFormSheet];
     [self presentModalViewController:setNVC animated:YES];
+//    [self presentPopupViewController:<#(UIViewController *)#> animationType:<#(MJPopupViewAnimation)#>]
     [set release];
     [setNVC release];
 }
