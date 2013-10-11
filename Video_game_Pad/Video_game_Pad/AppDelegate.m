@@ -63,5 +63,14 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
+/*/用以回收模态视图
+ if ([self respondsToSelector:@selector(presentingViewController)]){
+ [self.presentingViewController.presentingViewController dismissModalViewControllerAnimated:YES];
+ }
+ else {
+ [self.parentViewController.parentViewController dismissModalViewControllerAnimated:YES];
+ }
+ 
+ 
+ /*/
 @end

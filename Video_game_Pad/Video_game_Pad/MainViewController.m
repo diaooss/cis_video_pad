@@ -106,8 +106,9 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseName];
         if (cell==nil) {
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseName] autorelease];
+            cell.selectionStyle = UITableViewCellSelectionStyleGray;
         }
-       
+        cell.imageView.image = [UIImage imageNamed:@"Next.png"];
         cell.textLabel.text = [cateGoryArry objectAtIndex:indexPath.row/2];
         return cell;
     }
@@ -115,7 +116,8 @@
     Cell *rootCell = [tableView dequeueReusableCellWithIdentifier:detailReuse];
     if (rootCell == Nil) {
         rootCell = [[[Cell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:detailReuse] autorelease];
-        //[rootCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        [rootCell setSelectionStyle:UITableViewCellSelectionStyleNone];
         //rootCell.transform =CGAffineTransformMakeRotation(degreesToRadinas(90));
     }
 //*****************确保重用的cell起始位置不变
@@ -135,12 +137,15 @@
 #pragma mark--cell的传值代理
 -(void)accessPlayViewControllerWithVideoID:(NSString *)videoID
 {
+    [self showAlertView];
     NSLog(@"%@",videoID);
 }
 #pragma mark--banner的传值
 -(void)transferBannerInfor:(NSString *)string
 {
     NSLog(@"%@",string);
+    [self showAlertView];
+
 }
 #pragma mark--请求回调
 -(void)requestSuccessWithResultDictionary:(NSDictionary *)dic
@@ -148,6 +153,13 @@
     self.bannerArry = [dic objectForKey:@"bannerResult"];
     [self setClassDic:dic];
     [mainTab reloadData];
+}
+-(void)showAlertView
+{
+    UIAlertView *tips = [[UIAlertView alloc] initWithTitle:@"😉紧张施工中..." message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [tips show];
+    [tips release];
+    
 }
 -(void)requestFailedWithResultDictionary:(NSDictionary *)dic
 {
