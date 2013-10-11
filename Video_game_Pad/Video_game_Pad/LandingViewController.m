@@ -65,7 +65,7 @@
     login_btn.frame = CGRectMake(pswTextF.left, pswTextF.bottom+30, 280, 50);
     [login_btn setTitle:@"登陆" forState:UIControlStateNormal];
     login_btn.showsTouchWhenHighlighted = YES;
-    [login_btn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
+    [login_btn addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:login_btn];
 
     
@@ -87,7 +87,6 @@
     [getPswBtn setShowsTouchWhenHighlighted:YES];
     getPswBtn.nameLabel.text = @"忘记密码";
     [self.view addSubview:getPswBtn];
-    
     
     
     

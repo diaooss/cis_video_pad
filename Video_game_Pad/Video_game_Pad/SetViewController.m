@@ -37,7 +37,7 @@
     [self.navigationItem setRightBarButtonItem:bar];
     [bar release];
     self.navigationItem.title = @"设置";
-    UITableView *setTab = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height-44) style:UITableViewStyleGrouped];
+    UITableView *setTab = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width-220, self.view.height-44) style:UITableViewStyleGrouped];
     setTab.scrollEnabled = NO;
     setTab.delegate = self;
     setTab.dataSource = self;

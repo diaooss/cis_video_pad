@@ -78,6 +78,7 @@
     [barItem release];
     [setBarItem release];
     
+       
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -105,6 +106,8 @@
     [self setViewControllers:nameArry animated:YES];
     [main release];
     [collect release];
+    
+    [self.view setExclusiveTouch:YES];
 }
 -(void)makeRecordView
 {
@@ -162,13 +165,14 @@
 {
     
     if (tabBarController.selectedIndex>5) {
-        
         LandingViewController * land = [[LandingViewController alloc]init];
     UINavigationController * landNVC = [[UINavigationController alloc]initWithRootViewController:land];
     [landNVC setModalPresentationStyle:UIModalPresentationFormSheet];
     [self presentModalViewController:landNVC animated:YES];
     [land release];
     [landNVC release];
+        
+      
     }
 
     [self.navigationItem setTitle:viewController.title];

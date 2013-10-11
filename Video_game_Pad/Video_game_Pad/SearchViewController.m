@@ -78,6 +78,7 @@
     moreLab.text = @"敬请期待...";
     [self.view addSubview:moreLab];
     [moreLab release];
+    [searchBar becomeFirstResponder];
     
     
 }
