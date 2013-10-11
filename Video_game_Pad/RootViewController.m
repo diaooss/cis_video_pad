@@ -121,25 +121,33 @@
         // 添加内容视图控制器
         self.MyPopoverController = [[[UIPopoverController alloc]initWithContentViewController:navigation] autorelease];
         [navigation release];//popoverBackgroundViewClass
-        UIImageView * image =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 280, 600)];
-        [image setImage:[UIImage imageNamed:@"plant1.png"]];
-//        MyView * view = [[MyView alloc]initWithFrame:CGRectMake(0, 0, 280, 600)];
-//        if ([self.MyPopoverController respondsToSelector:@selector(popoverBackgroundViewClass)]) {
-//            [self.MyPopoverController setPopoverBackgroundViewClass:[view class]];
-//        }
         // 设置popover视图⼤大⼩小
-        self.MyPopoverController.popoverContentSize = CGSizeMake(280, 600);
+        self.MyPopoverController.popoverContentSize = CGSizeMake(300, 600);
+        [self.MyPopoverController setDelegate:self];
         [self.MyPopoverController presentPopoverFromBarButtonItem:[self.navigationItem.leftBarButtonItems objectAtIndex:1] permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
+}
+//判断popView是否存在
+-(void)isHavePopView
+{
+    if (self.MyPopoverController.popoverVisible) {
+        [self.MyPopoverController dismissPopoverAnimated:YES];
     }
 }
 -(void)showSettingPage
 {
+   
+    [self isHavePopView];
+    
     SetViewController * set = [[SetViewController alloc]init];
     UINavigationController * setNVC = [[UINavigationController alloc]initWithRootViewController:set];
     [setNVC setModalPresentationStyle:UIModalPresentationFormSheet];
+    [setNVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [self presentModalViewController:setNVC animated:YES];
-    [set release];
+    
+    //[self.navigationController presentPopupViewController:set animationType:MJPopupViewAnimationSlideBottomBottom];
     [setNVC release];
+    [set release];
 }
 -(UISplitViewController*)createCategoryViewControllerWitnName:(NSString*)name
 {
@@ -159,6 +167,7 @@
 #pragma mark--UITabBarController代理
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
+    [self isHavePopView];
     
     if (tabBarController.selectedIndex>5) {
         
@@ -177,6 +186,7 @@
 #pragma mark--拉起搜索页面
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar                     // return NO to not become first responder
 {
+    [self isHavePopView];
     NSLog(@"点击");
     SearchViewController *seachVc  = [[SearchViewController alloc] init];
     UINavigationController *searchNavc = [[UINavigationController alloc] initWithRootViewController:seachVc];
@@ -184,6 +194,7 @@
     [seachVc release];
     [searchNavc release];
 
+    
     return NO;
     
 }
@@ -196,5 +207,45 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 
+{
+    
+    // 这里可以做子view自己想做的事，做完后，事件继续上传，就可以让其父类，甚至父viewcontroller获取到这个事件了
+    
+    [[self nextResponder]touchesBegan:touches withEvent:event];
+    NSLog(@"000000000");
+    
+}
+
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+
+{
+    
+    [[self nextResponder]touchesEnded:touches withEvent:event];
+    
+}
+
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+
+{
+    
+    [[self nextResponder] touchesCancelled:touches withEvent:event];
+    
+}
+
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+
+{
+    
+    [[self nextResponder] touchesMoved:touches withEvent:event];
+}
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
+{
+    
+    return YES;
+}
 @end
