@@ -147,13 +147,10 @@
     [setNVC setModalPresentationStyle:UIModalPresentationFormSheet];
     [setNVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [self presentModalViewController:setNVC animated:YES];
-<<<<<<< HEAD
     
     //[self.navigationController presentPopupViewController:set animationType:MJPopupViewAnimationSlideBottomBottom];
-=======
 //    [self presentPopupViewController:<#(UIViewController *)#> animationType:<#(MJPopupViewAnimation)#>]
     [set release];
->>>>>>> c3618aadc1b2c0b5d0794d553e06bce929cf5508
     [setNVC release];
     [set release];
 }
