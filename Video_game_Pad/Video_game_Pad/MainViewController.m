@@ -127,14 +127,6 @@
         return rootCell;
     }
     NSArray * nameArry = [NSArray arrayWithObjects:@"英雄联盟",@"dota",@"dota2",@"魔兽争霸3",@"星际大战2", nil];
-    if (indexPath.row == 3) {
-        NSLog(@"dota是%@",[self.classDic valueForKey:@"dota"]);
-            [rootCell loadInforWithNetArry:[self.classDic valueForKey:@"dota"]];
-        [rootCell setDelegate:self];
-    }
-        self.mark=indexPath.row;
-    
-
     if ([self.classDic valueForKey:[nameArry objectAtIndex:(indexPath.row-1)/2]]>0) {
         [rootCell loadInforWithNetArry:[self.classDic valueForKey:[nameArry objectAtIndex:(indexPath.row-1)/2]]];
         [rootCell setDelegate:self];

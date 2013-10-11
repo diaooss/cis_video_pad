@@ -7,6 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface RootViewController : UITabBarController<UITabBarControllerDelegate,UISearchBarDelegate>
+@interface RootViewController : UITabBarController<UITabBarControllerDelegate,UISearchBarDelegate,UIPopoverControllerDelegate>
 
 @end
