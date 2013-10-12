@@ -50,11 +50,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self.view setBackgroundColor:[UIColor redColor]];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     NSArray * segName = [NSArray arrayWithObjects:@"❤最新✌",@"😘最热😜", nil];
     UISegmentedControl * categorySeg =[[UISegmentedControl alloc]initWithItems:segName];
-    [categorySeg setFrame:CGRectMake(0, 0, 300, 70)];
-    [categorySeg setSegmentedControlStyle:UISegmentedControlStylePlain];
+    [categorySeg setFrame:CGRectMake(10, 5, 300, 70)];
+    [categorySeg setSegmentedControlStyle:UISegmentedControlStyleBar];
     [self.view addSubview:categorySeg];
     [categorySeg setSelectedSegmentIndex:0];
     self.choseString = @"time";
@@ -157,6 +157,11 @@
     [super viewWillDisappear:animated];
 //请求指针社为空
     [_categoryRequest setDelegate:nil];
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self addOneAuthorProductions];
+
 }
 - (void)didReceiveMemoryWarning
 {

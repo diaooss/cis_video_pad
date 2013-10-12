@@ -36,7 +36,7 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setBackgroundColor:[UIColor grayColor]];
     
-    recordTab = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 300, self.view.width-54) style:UITableViewStylePlain];
+    recordTab = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 300,556) style:UITableViewStylePlain];
     recordTab.dataSource = self;
     recordTab.delegate = self;
     recordTab.showsVerticalScrollIndicator = NO;

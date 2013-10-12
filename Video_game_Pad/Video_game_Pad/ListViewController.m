@@ -43,10 +43,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor yellowColor]];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
 	// Do any additional setup after loading the view.
     _authorListTab = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,320, self.view.height) style:UITableViewStylePlain];
-    [_authorListTab setBackgroundColor:[UIColor grayColor]];
+    [_authorListTab setBackgroundColor:[UIColor whiteColor]];
 
     [self.view addSubview:_authorListTab];
     [_authorListTab setDelegate:self];
@@ -55,7 +55,7 @@
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"😚😚作者列表😍😍😍";
+    return @"作者列表";
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
