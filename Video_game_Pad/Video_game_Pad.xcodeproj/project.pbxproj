@@ -70,6 +70,8 @@
 		23354C9817E97E140067385A /* AttentionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23354C9717E97E140067385A /* AttentionViewController.m */; };
 		23354C9F17E98B310067385A /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23354C9E17E98B310067385A /* RecordViewController.m */; };
 		23354CA517E99C080067385A /* MyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23354CA417E99C080067385A /* MyView.m */; };
+		233C7A5318079BF8000F1E30 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 233C7A5218079BF8000F1E30 /* CategoryCell.m */; };
+		233C7A571807E465000F1E30 /* AuthorListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 233C7A561807E465000F1E30 /* AuthorListCell.m */; };
 		2374D32218040AA300DB8BC1 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2374D32118040AA300DB8BC1 /* SetViewController.m */; };
 		2374D32618040AE400DB8BC1 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2374D32518040AE400DB8BC1 /* LandingViewController.m */; };
 /* End PBXBuildFile section */
@@ -193,6 +195,11 @@
 		23354C9E17E98B310067385A /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
 		23354CA317E99C080067385A /* MyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyView.h; sourceTree = "<group>"; };
 		23354CA417E99C080067385A /* MyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyView.m; sourceTree = "<group>"; };
+		233C7A5118079BF8000F1E30 /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
+		233C7A5218079BF8000F1E30 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
+		233C7A541807D2E8000F1E30 /* RequestUrls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestUrls.h; sourceTree = "<group>"; };
+		233C7A551807E465000F1E30 /* AuthorListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorListCell.h; sourceTree = "<group>"; };
+		233C7A561807E465000F1E30 /* AuthorListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorListCell.m; sourceTree = "<group>"; };
 		2374D32018040AA300DB8BC1 /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
 		2374D32118040AA300DB8BC1 /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
 		2374D32418040AE400DB8BC1 /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
@@ -340,6 +347,7 @@
 		206CC77D17F9093A00E67B57 /* DelegateAndTabbarcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				233C7A541807D2E8000F1E30 /* RequestUrls.h */,
 				23354C5B17E938700067385A /* AppDelegate.h */,
 				23354C5C17E938700067385A /* AppDelegate.m */,
 				23354CA317E99C080067385A /* MyView.h */,
@@ -553,8 +561,12 @@
 			children = (
 				23354C8817E94BDA0067385A /* CategoryViewController.h */,
 				23354C8917E94BDA0067385A /* CategoryViewController.m */,
+				233C7A5118079BF8000F1E30 /* CategoryCell.h */,
+				233C7A5218079BF8000F1E30 /* CategoryCell.m */,
 				23354C8E17E976C80067385A /* ListViewController.h */,
 				23354C8F17E976C80067385A /* ListViewController.m */,
+				233C7A551807E465000F1E30 /* AuthorListCell.h */,
+				233C7A561807E465000F1E30 /* AuthorListCell.m */,
 			);
 			name = Category_view;
 			sourceTree = "<group>";
@@ -721,6 +733,8 @@
 				2058889818052553007ABDAD /* MJPopupBackgroundView.m in Sources */,
 				2058889918052553007ABDAD /* UIViewController+MJPopupViewController.m in Sources */,
 				2058889D18054B57007ABDAD /* SetButton.m in Sources */,
+				233C7A5318079BF8000F1E30 /* CategoryCell.m in Sources */,
+				233C7A571807E465000F1E30 /* AuthorListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

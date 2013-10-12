@@ -20,6 +20,10 @@
 #import "LandingViewController.h"
 #import "UIViewController+MJPopupViewController.h"
 @interface RootViewController ()
+
+{
+    UISplitViewController * split;
+}
 @property(nonatomic,retain)UIPopoverController * MyPopoverController;
 @end
 
@@ -95,11 +99,12 @@
     [attention setTitle:@"我的关注"];
     //
     NSArray * nameArry = [NSArray arrayWithObjects:main,
-                          [self createCategoryViewControllerWitnName:@"Dota"],
                           [self createCategoryViewControllerWitnName:@"英雄联盟"],
+                          [self createCategoryViewControllerWitnName:@"Dota"],
                           [self createCategoryViewControllerWitnName:@"Dota2"],
-                          [self createCategoryViewControllerWitnName:@"星际争霸2"],
-                          [self createCategoryViewControllerWitnName:@"魔兽世界"],
+                          [self createCategoryViewControllerWitnName:@"魔兽争霸3"],
+                          [self createCategoryViewControllerWitnName:@"星际大战2"],
+                          
                           collect,
                           attention,
                           nil];
@@ -148,32 +153,39 @@
     [setNVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [self presentModalViewController:setNVC animated:YES];
     
-    //[self.navigationController presentPopupViewController:set animationType:MJPopupViewAnimationSlideBottomBottom];
-//    [self presentPopupViewController:<#(UIViewController *)#> animationType:<#(MJPopupViewAnimation)#>]
     [set release];
     [setNVC release];
-    [set release];
 }
 -(UISplitViewController*)createCategoryViewControllerWitnName:(NSString*)name
 {
-    CategoryViewController * category = [[CategoryViewController alloc]init];
+    
 //配置tabbar
 //左视图控制器
     ListViewController * list = [[ListViewController alloc] init];
-    UISplitViewController * split = [[UISplitViewController alloc]init];
+    CategoryViewController * category = [[CategoryViewController alloc]init];
+    split = [[UISplitViewController alloc]init];
     [split setTitle:name];
     NSArray * arry = [NSArray arrayWithObjects:list,category, nil];
     [split setViewControllers:arry];
 //释放
     [category release];
     [list release];
-    return [split autorelease];
+    return split;
 }
 #pragma mark--UITabBarController代理
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
     [self isHavePopView];
+    [self.navigationItem setTitle:viewController.title];
     
+    if (tabBarController.selectedIndex>0&&tabBarController.selectedIndex<6) {
+    
+    NSArray * nameArry = [NSArray arrayWithObjects:@"英雄联盟",@"dota",@"dota2",@"魔兽争霸3",@"星际大战2", nil];
+        UISplitViewController * splitViewController = (UISplitViewController *)viewController;
+    ListViewController * list= [[splitViewController viewControllers]objectAtIndex:0];
+    [list setCategory:[nameArry objectAtIndex:tabBarController.selectedIndex-1]];
+    [list requestAuthorListWithCategory:[nameArry objectAtIndex:tabBarController.selectedIndex-1]];
+    }
     if (tabBarController.selectedIndex>5) {
         LandingViewController * land = [[LandingViewController alloc]init];
     UINavigationController * landNVC = [[UINavigationController alloc]initWithRootViewController:land];
@@ -181,11 +193,8 @@
     [self presentModalViewController:landNVC animated:YES];
     [land release];
     [landNVC release];
-        
-      
     }
-
-    [self.navigationItem setTitle:viewController.title];
+    
         
     
 }
@@ -213,45 +222,45 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-
-{
-    
-    // 这里可以做子view自己想做的事，做完后，事件继续上传，就可以让其父类，甚至父viewcontroller获取到这个事件了
-    
-    [[self nextResponder]touchesBegan:touches withEvent:event];
-    NSLog(@"000000000");
-    
-}
-
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-
-{
-    
-    [[self nextResponder]touchesEnded:touches withEvent:event];
-    
-}
-
-
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-
-{
-    
-    [[self nextResponder] touchesCancelled:touches withEvent:event];
-    
-}
-
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-
-{
-    
-    [[self nextResponder] touchesMoved:touches withEvent:event];
-}
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
-{
-    
-    return YES;
-}
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//
+//{
+//    
+//    // 这里可以做子view自己想做的事，做完后，事件继续上传，就可以让其父类，甚至父viewcontroller获取到这个事件了
+//    
+//    [[self nextResponder]touchesBegan:touches withEvent:event];
+//    NSLog(@"000000000");
+//    
+//}
+//
+//
+//- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+//
+//{
+//    
+//    [[self nextResponder]touchesEnded:touches withEvent:event];
+//    
+//}
+//
+//
+//- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+//
+//{
+//    
+//    [[self nextResponder] touchesCancelled:touches withEvent:event];
+//    
+//}
+//
+//
+//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+//
+//{
+//    
+//    [[self nextResponder] touchesMoved:touches withEvent:event];
+//}
+//- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
+//{
+//    
+//    return YES;
+//}
 @end
