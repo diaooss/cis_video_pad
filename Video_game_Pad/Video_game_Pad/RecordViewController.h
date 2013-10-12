@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RecordViewController : UIViewController
+@interface RecordViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+{
+    UITableView *recordTab;
+    
+}
 
 @end

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		20515DEB1803DAAB00708A55 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20515DEA1803DAAB00708A55 /* SearchViewController.m */; };
 		2058889818052553007ABDAD /* MJPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2058889518052553007ABDAD /* MJPopupBackgroundView.m */; };
 		2058889918052553007ABDAD /* UIViewController+MJPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2058889718052553007ABDAD /* UIViewController+MJPopupViewController.m */; };
 		2058889D18054B57007ABDAD /* SetButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2058889C18054B57007ABDAD /* SetButton.m */; };
@@ -42,6 +41,15 @@
 		206CC77A17F9084800E67B57 /* ASIS3ObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 206CC77217F9084800E67B57 /* ASIS3ObjectRequest.m */; };
 		206CC77B17F9084800E67B57 /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 206CC77417F9084800E67B57 /* ASIS3Request.m */; };
 		206CC77C17F9084800E67B57 /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 206CC77617F9084800E67B57 /* ASIS3ServiceRequest.m */; };
+		207D19F618093FED002C739A /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207D19F118093FED002C739A /* LandingViewController.m */; };
+		207D19F718093FED002C739A /* ForgetPSWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207D19F318093FED002C739A /* ForgetPSWViewController.m */; };
+		207D19F818093FED002C739A /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207D19F518093FED002C739A /* RegisterViewController.m */; };
+		207D19FB18094007002C739A /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207D19FA18094007002C739A /* FeedBackViewController.m */; };
+		207D19FE18094010002C739A /* HelpAngAgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207D19FD18094010002C739A /* HelpAngAgreementViewController.m */; };
+		207D1A011809401D002C739A /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207D1A001809401D002C739A /* SetViewController.m */; };
+		207D1A0618094027002C739A /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207D1A0318094027002C739A /* SearchViewController.m */; };
+		207D1A0718094028002C739A /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207D1A0518094027002C739A /* ResultViewController.m */; };
+		207D1A0A1809405D002C739A /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207D1A091809405D002C739A /* RecordViewController.m */; };
 		20840E3517F821AC00DCFD08 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20840E3417F821AC00DCFD08 /* Cell.m */; };
 		20840E3917F821CC00DCFD08 /* GroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20840E3817F821CC00DCFD08 /* GroupView.m */; };
 		20840E3D17F822C300DCFD08 /* MyNsstringTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 20840E3C17F822C300DCFD08 /* MyNsstringTools.m */; };
@@ -73,17 +81,12 @@
 		23354C9017E976C80067385A /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23354C8F17E976C80067385A /* ListViewController.m */; };
 		23354C9317E97BE80067385A /* CollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23354C9217E97BE80067385A /* CollectViewController.m */; };
 		23354C9817E97E140067385A /* AttentionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23354C9717E97E140067385A /* AttentionViewController.m */; };
-		23354C9F17E98B310067385A /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23354C9E17E98B310067385A /* RecordViewController.m */; };
 		23354CA517E99C080067385A /* MyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23354CA417E99C080067385A /* MyView.m */; };
 		233C7A5318079BF8000F1E30 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 233C7A5218079BF8000F1E30 /* CategoryCell.m */; };
 		233C7A571807E465000F1E30 /* AuthorListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 233C7A561807E465000F1E30 /* AuthorListCell.m */; };
-		2374D32218040AA300DB8BC1 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2374D32118040AA300DB8BC1 /* SetViewController.m */; };
-		2374D32618040AE400DB8BC1 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2374D32518040AE400DB8BC1 /* LandingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		20515DE91803DAAB00708A55 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		20515DEA1803DAAB00708A55 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		2058889418052553007ABDAD /* MJPopupBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPopupBackgroundView.h; sourceTree = "<group>"; };
 		2058889518052553007ABDAD /* MJPopupBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPopupBackgroundView.m; sourceTree = "<group>"; };
 		2058889618052553007ABDAD /* UIViewController+MJPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MJPopupViewController.h"; sourceTree = "<group>"; };
@@ -150,6 +153,24 @@
 		206CC77417F9084800E67B57 /* ASIS3Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3Request.m; sourceTree = "<group>"; };
 		206CC77517F9084800E67B57 /* ASIS3ServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3ServiceRequest.h; sourceTree = "<group>"; };
 		206CC77617F9084800E67B57 /* ASIS3ServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3ServiceRequest.m; sourceTree = "<group>"; };
+		207D19F018093FED002C739A /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
+		207D19F118093FED002C739A /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
+		207D19F218093FED002C739A /* ForgetPSWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPSWViewController.h; sourceTree = "<group>"; };
+		207D19F318093FED002C739A /* ForgetPSWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPSWViewController.m; sourceTree = "<group>"; };
+		207D19F418093FED002C739A /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		207D19F518093FED002C739A /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		207D19F918094007002C739A /* FeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackViewController.h; sourceTree = "<group>"; };
+		207D19FA18094007002C739A /* FeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackViewController.m; sourceTree = "<group>"; };
+		207D19FC18094010002C739A /* HelpAngAgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpAngAgreementViewController.h; sourceTree = "<group>"; };
+		207D19FD18094010002C739A /* HelpAngAgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpAngAgreementViewController.m; sourceTree = "<group>"; };
+		207D19FF1809401D002C739A /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
+		207D1A001809401D002C739A /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
+		207D1A0218094027002C739A /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		207D1A0318094027002C739A /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		207D1A0418094027002C739A /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
+		207D1A0518094027002C739A /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
+		207D1A081809405D002C739A /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
+		207D1A091809405D002C739A /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
 		20840E3317F821AC00DCFD08 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		20840E3417F821AC00DCFD08 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		20840E3717F821CC00DCFD08 /* GroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupView.h; sourceTree = "<group>"; };
@@ -204,8 +225,6 @@
 		23354C9217E97BE80067385A /* CollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectViewController.m; sourceTree = "<group>"; };
 		23354C9617E97E140067385A /* AttentionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttentionViewController.h; sourceTree = "<group>"; };
 		23354C9717E97E140067385A /* AttentionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttentionViewController.m; sourceTree = "<group>"; };
-		23354C9D17E98B300067385A /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
-		23354C9E17E98B310067385A /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
 		23354CA317E99C080067385A /* MyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyView.h; sourceTree = "<group>"; };
 		23354CA417E99C080067385A /* MyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyView.m; sourceTree = "<group>"; };
 		233C7A5118079BF8000F1E30 /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
@@ -213,10 +232,6 @@
 		233C7A541807D2E8000F1E30 /* RequestUrls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestUrls.h; sourceTree = "<group>"; };
 		233C7A551807E465000F1E30 /* AuthorListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorListCell.h; sourceTree = "<group>"; };
 		233C7A561807E465000F1E30 /* AuthorListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorListCell.m; sourceTree = "<group>"; };
-		2374D32018040AA300DB8BC1 /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
-		2374D32118040AA300DB8BC1 /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
-		2374D32418040AE400DB8BC1 /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
-		2374D32518040AE400DB8BC1 /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,8 +258,10 @@
 		20515DE81803DA8700708A55 /* Search-view */ = {
 			isa = PBXGroup;
 			children = (
-				20515DE91803DAAB00708A55 /* SearchViewController.h */,
-				20515DEA1803DAAB00708A55 /* SearchViewController.m */,
+				207D1A0218094027002C739A /* SearchViewController.h */,
+				207D1A0318094027002C739A /* SearchViewController.m */,
+				207D1A0418094027002C739A /* ResultViewController.h */,
+				207D1A0518094027002C739A /* ResultViewController.m */,
 			);
 			name = "Search-view";
 			sourceTree = "<group>";
@@ -388,6 +405,24 @@
 				20840E3217F8219300DCFD08 /* RootCell */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		207D19EE18093FA9002C739A /* HelpAndAgreement */ = {
+			isa = PBXGroup;
+			children = (
+				207D19FC18094010002C739A /* HelpAngAgreementViewController.h */,
+				207D19FD18094010002C739A /* HelpAngAgreementViewController.m */,
+			);
+			name = HelpAndAgreement;
+			sourceTree = "<group>";
+		};
+		207D19EF18093FB4002C739A /* FeedBack */ = {
+			isa = PBXGroup;
+			children = (
+				207D19F918094007002C739A /* FeedBackViewController.h */,
+				207D19FA18094007002C739A /* FeedBackViewController.m */,
+			);
+			name = FeedBack;
 			sourceTree = "<group>";
 		};
 		20840E3217F8219300DCFD08 /* RootCell */ = {
@@ -630,8 +665,8 @@
 		23354C9C17E985C60067385A /* Record_view */ = {
 			isa = PBXGroup;
 			children = (
-				23354C9D17E98B300067385A /* RecordViewController.h */,
-				23354C9E17E98B310067385A /* RecordViewController.m */,
+				207D1A081809405D002C739A /* RecordViewController.h */,
+				207D1A091809405D002C739A /* RecordViewController.m */,
 			);
 			name = Record_view;
 			sourceTree = "<group>";
@@ -639,8 +674,10 @@
 		2374D31F18040A6D00DB8BC1 /* Set_ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2374D32018040AA300DB8BC1 /* SetViewController.h */,
-				2374D32118040AA300DB8BC1 /* SetViewController.m */,
+				207D19FF1809401D002C739A /* SetViewController.h */,
+				207D1A001809401D002C739A /* SetViewController.m */,
+				207D19EF18093FB4002C739A /* FeedBack */,
+				207D19EE18093FA9002C739A /* HelpAndAgreement */,
 			);
 			name = Set_ViewController;
 			sourceTree = "<group>";
@@ -648,8 +685,12 @@
 		2374D32318040ABD00DB8BC1 /* landing_Viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
-				2374D32418040AE400DB8BC1 /* LandingViewController.h */,
-				2374D32518040AE400DB8BC1 /* LandingViewController.m */,
+				207D19F018093FED002C739A /* LandingViewController.h */,
+				207D19F118093FED002C739A /* LandingViewController.m */,
+				207D19F218093FED002C739A /* ForgetPSWViewController.h */,
+				207D19F318093FED002C739A /* ForgetPSWViewController.m */,
+				207D19F418093FED002C739A /* RegisterViewController.h */,
+				207D19F518093FED002C739A /* RegisterViewController.m */,
 			);
 			name = landing_Viewcontroller;
 			sourceTree = "<group>";
@@ -736,7 +777,6 @@
 				23354C9017E976C80067385A /* ListViewController.m in Sources */,
 				23354C9317E97BE80067385A /* CollectViewController.m in Sources */,
 				23354C9817E97E140067385A /* AttentionViewController.m in Sources */,
-				23354C9F17E98B310067385A /* RecordViewController.m in Sources */,
 				23354CA517E99C080067385A /* MyView.m in Sources */,
 				20840E3517F821AC00DCFD08 /* Cell.m in Sources */,
 				20840E3917F821CC00DCFD08 /* GroupView.m in Sources */,
@@ -766,9 +806,6 @@
 				206CC77B17F9084800E67B57 /* ASIS3Request.m in Sources */,
 				206CC77C17F9084800E67B57 /* ASIS3ServiceRequest.m in Sources */,
 				20F8956B17F96E730031C786 /* MovieDetailViewController.m in Sources */,
-				20515DEB1803DAAB00708A55 /* SearchViewController.m in Sources */,
-				2374D32218040AA300DB8BC1 /* SetViewController.m in Sources */,
-				2374D32618040AE400DB8BC1 /* LandingViewController.m in Sources */,
 				2058889818052553007ABDAD /* MJPopupBackgroundView.m in Sources */,
 				2058889918052553007ABDAD /* UIViewController+MJPopupViewController.m in Sources */,
 				2058889D18054B57007ABDAD /* SetButton.m in Sources */,
@@ -777,6 +814,15 @@
 				2097385B18093AEE005EE6C9 /* Tools.m in Sources */,
 				2097385F18093B1B005EE6C9 /* SqCached.m in Sources */,
 				2097386318093B32005EE6C9 /* MBProgressHUD.m in Sources */,
+				207D19F618093FED002C739A /* LandingViewController.m in Sources */,
+				207D19F718093FED002C739A /* ForgetPSWViewController.m in Sources */,
+				207D19F818093FED002C739A /* RegisterViewController.m in Sources */,
+				207D19FB18094007002C739A /* FeedBackViewController.m in Sources */,
+				207D19FE18094010002C739A /* HelpAngAgreementViewController.m in Sources */,
+				207D1A011809401D002C739A /* SetViewController.m in Sources */,
+				207D1A0618094027002C739A /* SearchViewController.m in Sources */,
+				207D1A0718094028002C739A /* ResultViewController.m in Sources */,
+				207D1A0A1809405D002C739A /* RecordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

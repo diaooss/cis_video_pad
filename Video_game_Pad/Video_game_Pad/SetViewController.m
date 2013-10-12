@@ -8,6 +8,8 @@
 
 #import "SetViewController.h"
 #import "Tools_Header.h"
+#import "HelpAngAgreementViewController.h"
+#import "FeedBackViewController.h"
 @interface SetViewController ()
 
 @end
@@ -73,9 +75,15 @@
         switch (indexPath.row) {
             case 0:
                 setCell.textLabel.text = @"缓存清理";
-                break;
+            break;
             case 1:
                 setCell.textLabel.text = @"通知设置";
+                setCell.selectionStyle = UITableViewCellSelectionStyleNone;
+                UISwitch *s = [[UISwitch alloc] initWithFrame:CGRectMake(390, 10, 0, 0)];
+                [setCell.contentView addSubview:s];
+                [s addTarget:self action:@selector(isGetNotifation:) forControlEvents:UIControlEventValueChanged];
+                [s release];
+
                 break;
             default:
                 break;
@@ -124,9 +132,6 @@
             case 0:
                 [self showAlertView];
                 break;
-            case 1:
-                [self showAlertView];
-                break;
             default:
                 break;
         }
@@ -134,13 +139,13 @@
     if (indexPath.section == 1) {
         switch (indexPath.row) {
             case 0:
-                [self showAlertView];
+                [self goToHelpAndAgreementPage];
                 break;
             case 1:
-                [self showAlertView];
+                [self goToFeedBackPage];
                 break;
             case 2:
-                [self showAlertView];
+                [self goToHelpAndAgreementPage];
                 break;
             default:
                 break;
@@ -162,7 +167,19 @@
         }
     }
 
-    
+}
+#pragma mark--前往帮助,协议,反馈,关于我们页面
+-(void)goToFeedBackPage
+{
+    FeedBackViewController*feedPage = [[FeedBackViewController alloc] init];
+    [self.navigationController pushViewController:feedPage animated:YES];
+    [feedPage release];
+}
+-(void)goToHelpAndAgreementPage
+{
+    HelpAngAgreementViewController *helpAndAgreement = [[HelpAngAgreementViewController alloc] init];
+    [self.navigationController pushViewController:helpAndAgreement animated:YES];
+    [helpAndAgreement release];
 }
 -(void)showAlertView
 {
@@ -170,6 +187,15 @@
     [tips show];
     [tips release];
 
+}
+-(void)isGetNotifation:(UISwitch *)sender
+{
+    
+    UIAlertView *tips = [[UIAlertView alloc] initWithTitle:@"😉就快好了..." message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [tips show];
+    [tips release];
+    
+    
 }
 -(void)viewDisappear
 {

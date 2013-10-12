@@ -1,0 +1,17 @@
+//
+//  ForgetPSWViewController.h
+//  Video_game_Pad
+//
+//  Created by huanfang_liu on 13-10-11.
+//  Copyright (c) 2013年 com.huanfang. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface ForgetPSWViewController : UIViewController<UITextFieldDelegate>
+{
+    UITextField *emailField;//输入的验证邮箱
+
+}
+
+@end
