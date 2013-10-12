@@ -150,7 +150,7 @@
     SetViewController * set = [[SetViewController alloc]init];
     UINavigationController * setNVC = [[UINavigationController alloc]initWithRootViewController:set];
     [setNVC setModalPresentationStyle:UIModalPresentationFormSheet];
-    [setNVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [setNVC setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentModalViewController:setNVC animated:YES];
     
     [set release];
@@ -188,11 +188,12 @@
     }
     if (tabBarController.selectedIndex>5) {
         LandingViewController * land = [[LandingViewController alloc]init];
-    UINavigationController * landNVC = [[UINavigationController alloc]initWithRootViewController:land];
-    [landNVC setModalPresentationStyle:UIModalPresentationFormSheet];
-    [self presentModalViewController:landNVC animated:YES];
-    [land release];
-    [landNVC release];
+        UINavigationController * landNVC = [[UINavigationController alloc]initWithRootViewController:land];
+        [landNVC setModalPresentationStyle:UIModalPresentationPageSheet];
+        [self presentModalViewController:landNVC animated:YES];
+        [land release];
+        [landNVC release];
+
     }
     
         

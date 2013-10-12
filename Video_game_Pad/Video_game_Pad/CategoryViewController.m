@@ -119,7 +119,6 @@
 #pragma mark --cell的代理----传递点击图片的代理事件
 -(void)transferCategoryCellinforWithID:(NSString *)ID
 {
-#warning 这里进入播放界面
     NSLog(@"----%@",ID);
 }
 #pragma mark 根据作者请求图片

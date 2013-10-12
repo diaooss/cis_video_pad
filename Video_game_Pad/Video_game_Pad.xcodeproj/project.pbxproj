@@ -45,6 +45,11 @@
 		20840E3517F821AC00DCFD08 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20840E3417F821AC00DCFD08 /* Cell.m */; };
 		20840E3917F821CC00DCFD08 /* GroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20840E3817F821CC00DCFD08 /* GroupView.m */; };
 		20840E3D17F822C300DCFD08 /* MyNsstringTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 20840E3C17F822C300DCFD08 /* MyNsstringTools.m */; };
+		2097385818093AD7005EE6C9 /* headerimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 2097385718093AD7005EE6C9 /* headerimage.png */; };
+		2097385B18093AEE005EE6C9 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2097385A18093AEE005EE6C9 /* Tools.m */; };
+		2097385F18093B1B005EE6C9 /* SqCached.m in Sources */ = {isa = PBXBuildFile; fileRef = 2097385E18093B1B005EE6C9 /* SqCached.m */; };
+		2097386318093B32005EE6C9 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2097386218093B32005EE6C9 /* MBProgressHUD.m */; };
+		2097386518093B64005EE6C9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2097386418093B64005EE6C9 /* libsqlite3.dylib */; };
 		20F8956B17F96E730031C786 /* MovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F8956A17F96E730031C786 /* MovieDetailViewController.m */; };
 		23354C4D17E938700067385A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23354C4C17E938700067385A /* UIKit.framework */; };
 		23354C4F17E938700067385A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23354C4E17E938700067385A /* Foundation.framework */; };
@@ -151,6 +156,14 @@
 		20840E3817F821CC00DCFD08 /* GroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupView.m; sourceTree = "<group>"; };
 		20840E3B17F822C300DCFD08 /* MyNsstringTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNsstringTools.h; sourceTree = "<group>"; };
 		20840E3C17F822C300DCFD08 /* MyNsstringTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNsstringTools.m; sourceTree = "<group>"; };
+		2097385718093AD7005EE6C9 /* headerimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headerimage.png; sourceTree = "<group>"; };
+		2097385918093AEE005EE6C9 /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
+		2097385A18093AEE005EE6C9 /* Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
+		2097385D18093B1B005EE6C9 /* SqCached.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqCached.h; sourceTree = "<group>"; };
+		2097385E18093B1B005EE6C9 /* SqCached.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqCached.m; sourceTree = "<group>"; };
+		2097386118093B32005EE6C9 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		2097386218093B32005EE6C9 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		2097386418093B64005EE6C9 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		20F8956917F96E730031C786 /* MovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailViewController.h; sourceTree = "<group>"; };
 		20F8956A17F96E730031C786 /* MovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailViewController.m; sourceTree = "<group>"; };
 		23354C4917E938700067385A /* Video_game_Pad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Video_game_Pad.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +224,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2097386518093B64005EE6C9 /* libsqlite3.dylib in Frameworks */,
 				23354C7317E93B440067385A /* QuartzCore.framework in Frameworks */,
 				206CC74B17F9079300E67B57 /* libxml2.dylib in Frameworks */,
 				206CC74917F9077B00E67B57 /* libz.dylib in Frameworks */,
@@ -347,7 +361,6 @@
 		206CC77D17F9093A00E67B57 /* DelegateAndTabbarcontroller */ = {
 			isa = PBXGroup;
 			children = (
-				233C7A541807D2E8000F1E30 /* RequestUrls.h */,
 				23354C5B17E938700067385A /* AppDelegate.h */,
 				23354C5C17E938700067385A /* AppDelegate.m */,
 				23354CA317E99C080067385A /* MyView.h */,
@@ -361,6 +374,7 @@
 		206CC77E17F9097A00E67B57 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2097385718093AD7005EE6C9 /* headerimage.png */,
 				2058889E18054CE0007ABDAD /* Next.png */,
 				2058889F18054CE0007ABDAD /* Next@2x.png */,
 				23354C8117E942630067385A /* test.png */,
@@ -398,13 +412,34 @@
 		20840E3A17F822AA00DCFD08 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				2097385918093AEE005EE6C9 /* Tools.h */,
+				2097385A18093AEE005EE6C9 /* Tools.m */,
 				23354C7717E93BC60067385A /* Tools_Header.h */,
+				233C7A541807D2E8000F1E30 /* RequestUrls.h */,
 				206CC74C17F907DC00E67B57 /* RequestTools.h */,
 				206CC74D17F907DC00E67B57 /* RequestTools.m */,
 				20840E3B17F822C300DCFD08 /* MyNsstringTools.h */,
 				20840E3C17F822C300DCFD08 /* MyNsstringTools.m */,
 			);
 			name = Tools;
+			sourceTree = "<group>";
+		};
+		2097385C18093B0D005EE6C9 /* DataCache */ = {
+			isa = PBXGroup;
+			children = (
+				2097385D18093B1B005EE6C9 /* SqCached.h */,
+				2097385E18093B1B005EE6C9 /* SqCached.m */,
+			);
+			name = DataCache;
+			sourceTree = "<group>";
+		};
+		2097386018093B22005EE6C9 /* MBHUD */ = {
+			isa = PBXGroup;
+			children = (
+				2097386118093B32005EE6C9 /* MBProgressHUD.h */,
+				2097386218093B32005EE6C9 /* MBProgressHUD.m */,
+			);
+			name = MBHUD;
 			sourceTree = "<group>";
 		};
 		20F8956817F96E460031C786 /* MovieDetailView */ = {
@@ -440,6 +475,7 @@
 		23354C4B17E938700067385A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2097386418093B64005EE6C9 /* libsqlite3.dylib */,
 				206CC74A17F9079300E67B57 /* libxml2.dylib */,
 				206CC74817F9077B00E67B57 /* libz.dylib */,
 				206CC74617F9075800E67B57 /* MobileCoreServices.framework */,
@@ -488,6 +524,8 @@
 		23354C7417E93B5A0067385A /* thirdSDK */ = {
 			isa = PBXGroup;
 			children = (
+				2097386018093B22005EE6C9 /* MBHUD */,
+				2097385C18093B0D005EE6C9 /* DataCache */,
 				2058889A18054B44007ABDAD /* MYBtn */,
 				2058889318052513007ABDAD /* MYModalView */,
 				206CC72217F905BC00E67B57 /* jSONKIT */,
@@ -674,6 +712,7 @@
 				23354C8217E942630067385A /* test.png in Resources */,
 				205888A018054CE0007ABDAD /* Next.png in Resources */,
 				205888A118054CE0007ABDAD /* Next@2x.png in Resources */,
+				2097385818093AD7005EE6C9 /* headerimage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,6 +774,9 @@
 				2058889D18054B57007ABDAD /* SetButton.m in Sources */,
 				233C7A5318079BF8000F1E30 /* CategoryCell.m in Sources */,
 				233C7A571807E465000F1E30 /* AuthorListCell.m in Sources */,
+				2097385B18093AEE005EE6C9 /* Tools.m in Sources */,
+				2097385F18093B1B005EE6C9 /* SqCached.m in Sources */,
+				2097386318093B32005EE6C9 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
