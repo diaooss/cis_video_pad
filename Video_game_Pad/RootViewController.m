@@ -222,20 +222,6 @@
     //NSLog(@"点击");
     SearchViewController *seachVc  = [[SearchViewController alloc] init];
     UINavigationController *searchNavc = [[UINavigationController alloc] initWithRootViewController:seachVc];
-    [self presentModalViewController:searchNavc animated:YES];
-    
-//    [searchNavc setModalPresentationStyle:UIModalPresentationCurrentContext];
-//    [self.navigationController presentModalViewController:searchNavc animated:YES];
-//    
-//    [searchNavc setModalPresentationStyle:UIModalPresentationPageSheet];
-//    [searchNavc setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-//    [self presentModalViewController:searchNavc animated:YES];
- 
-//    RootViewController * obj = (RootViewController *)[[UIApplication sharedApplication].keyWindow rootViewController];
-//    NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
-//    [user setValue:obj forKey:@"root"];
-//    [user synchronize];
-
     [self.navigationController presentViewController:searchNavc animated:YES completion:^{
         
     }];
