@@ -22,4 +22,6 @@
 #define GET_LIST_OF_A_AUTHOR @"http://121.199.57.44:88/webServer/GetSingleAuthorInfo.ashx"//获得单个作者的所有视频
 #define post_Header_Image @"http://121.199.57.44:88/webServer/HeadPhotoUpload.ashx"//上传头像
 #define FEED_BACK_URL @"http://121.199.57.44:88/webServer/Feedback.ashx"
+#define search_url @"http://121.199.57.44:88/webServer/PadSearch.ashx?keywords="
+#define get_hotword_url @"http://121.199.57.44:88/webServer/PadGetHotwords.ashx"
 #endif

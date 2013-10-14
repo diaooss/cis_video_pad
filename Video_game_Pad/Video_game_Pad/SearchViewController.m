@@ -9,6 +9,10 @@
 #import "SearchViewController.h"
 #import "ResultViewController.h"
 #import "Tools_Header.h"
+#import "RequestUrls.h"
+#import "RequestTools.h"
+#import "MyNsstringTools.h"
+
 #define padding 20
 @interface SearchViewController ()
 
@@ -18,6 +22,9 @@
 - (void)dealloc
 {
     [_searchBar release];
+    hotWordRequest.delegate = nil;
+    [hotWordRequest release];
+    self.hotWordDic = nil;
     [super dealloc];
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -56,7 +63,6 @@
     searchView.backgroundColor = [UIColor clearColor];
     [searchView addSubview:_searchBar];
     self.navigationItem.titleView = searchView;
-    /*/显示搜索内容/*/
     
     //返回按钮
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -75,15 +81,17 @@
     UILabel *hotSeachLab = [[UILabel alloc] initWithFrame:CGRectMake(230, 60, 100, 30)];
     hotSeachLab.text = @"热搜排行榜";
     hotSeachLab.backgroundColor = [UIColor clearColor];
-
+    hotSeachLab.tag = 137;
     hotSeachLab.textColor = [UIColor yellowColor];
     [self.view addSubview:hotSeachLab];
     [hotSeachLab release];
     //生成标签
-    for (int i = 0; i<5; i++) {
+    for (int i = 0; i<5; i++)
+    {
         UILabel *titilLab = [[UILabel alloc] initWithFrame:CGRectMake(hotSeachLab.left, padding+hotSeachLab.bottom+i*50, 80, 30)];
         titilLab.backgroundColor = [UIColor yellowColor];
         [titilLab setTextAlignment:NSTextAlignmentLeft];
+        titilLab.tag = i*1231+3;
         [self.view addSubview:titilLab];
         [titilLab release];
         if (i==0) {
@@ -96,10 +104,10 @@
             [titilLab setText:@"Dota2"];
         }
         if (i==3) {
-            [titilLab setText:@"星际争霸2"];
+            [titilLab setText:@"星际大战2"];
         }
         if (i==4) {
-            [titilLab setText:@"魔兽世界"];
+            [titilLab setText:@"魔兽争霸3"];
         }
     }
     for (int i = 0 ; i<5; i++) {
@@ -115,19 +123,55 @@
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHotSearchLabWithSender:)];
             [contentLab addGestureRecognizer:tap];
             [tap release];
-
         }
     }
-    [self showTitle];
-    
     
 }
--(void)showTitle
+-(void)showTitle:(NSDictionary *)dic
 {
     for (UILabel *l in self.view.subviews) {
-        if (l.tag>=10) {
-            l.text = @"自定义的热词";
+        if ((l.tag-10)%10==0) {
+            int index = (l.tag-10)/10;
+            l.text = [[dic objectForKey:@"dota"] objectAtIndex:index];
         }
+        if ((l.tag-11)%10==0) {
+            int index = (l.tag-11)/10;
+            l.text = [[dic objectForKey:@"英雄联盟"] objectAtIndex:index];
+        }
+       if ((l.tag-12)%10==0) {
+           int index = (l.tag-12)/10;
+             l.text = [[dic objectForKey:@"dota2"] objectAtIndex:index];
+        }
+         if ((l.tag-13)%10==0) {
+              int index = (l.tag-13)/10;
+             NSLog(@"星际:%d",index);
+             if (index<0) {
+                 index =0;
+             }
+              l.text = [[dic objectForKey:@"星际大战2"] objectAtIndex:index];
+          }
+    if ((l.tag-14)%10==0) {
+        int flag = (l.tag -14)/10;
+        NSLog(@"编辑是:%d",flag);
+        switch (l.tag) {
+            case 14:
+                l.text = [[dic objectForKey:@"魔兽争霸3"] objectAtIndex:0];
+                break;
+            case 24:
+                l.text = [[dic objectForKey:@"魔兽争霸3"] objectAtIndex:1];
+                break;
+            case 34:
+                l.text = [[dic objectForKey:@"魔兽争霸3"] objectAtIndex:2];
+                break;
+            case 44:
+                l.text = [[dic objectForKey:@"魔兽争霸3"] objectAtIndex:3];
+                break;
+                
+            default:
+                break;
+        }
+        
+         }
     }
 }
 -(void)goToSearchResultPageWithKeyWord:(NSString *)keyWord
@@ -151,10 +195,37 @@
     
     
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self getHoeWordFromServer];
+}
+-(void)getHoeWordFromServer
+{
+    hotWordRequest = [[RequestTools alloc] init];
+    hotWordRequest.delegate = self;
+[hotWordRequest requestWithUrl_Asynchronous:[MyNsstringTools groupStrByAStrArray:[NSArray arrayWithObjects:get_hotword_url, nil]]];
+    
+}
+#pragma mark--请求热词的代理方法
+-(void)requestFailedWithResultDictionary:(NSDictionary *)dic
+{
+    
+}
+-(void)requestSuccessWithResultDictionary:(NSDictionary *)dic
+{
+    self.hotWordDic = dic;
+    NSLog(@"%@",dic);
+    [self showTitle:dic];
+
+}
 -(void)back
 {
     [self dismissViewControllerAnimated:YES completion:nil];
     
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    hotWordRequest.delegate = nil;
 }
 - (void)viewDidLoad
 {

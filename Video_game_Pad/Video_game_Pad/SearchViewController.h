@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RequestTools.h"
 
-@interface SearchViewController : UIViewController<UISearchBarDelegate,UISearchDisplayDelegate>
+@interface SearchViewController : UIViewController<UISearchBarDelegate,myHttpRequestDelegate>
 {
     UISearchBar*  _searchBar;
-}
+    RequestTools *hotWordRequest;//请求热词
 
+}
+@property(nonatomic,retain)NSDictionary *hotWordDic;
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "MovieDetailViewController.h"
-
+#import "UIViewController+MJPopupViewController.h"
 @interface MovieDetailViewController ()
 
 @end
@@ -22,13 +22,26 @@
     }
     return self;
 }
-
+-(void)loadView
+{
+    self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 600, 600)];
+    self.view.backgroundColor = [UIColor yellowColor];
+    self.navigationItem.title = @"详情";
+    
+}
+-(void)hide
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(cancelButtonClicked:)]) {
+        [self.delegate cancelButtonClicked:nil];
+    }
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view.
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

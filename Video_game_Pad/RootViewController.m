@@ -18,7 +18,6 @@
 
 #import "SetViewController.h"
 #import "LandingViewController.h"
-#import "UIViewController+MJPopupViewController.h"
 @interface RootViewController ()
 
 {
@@ -151,11 +150,13 @@
     UINavigationController * setNVC = [[UINavigationController alloc]initWithRootViewController:set];
     [setNVC setModalPresentationStyle:UIModalPresentationFormSheet];
     [setNVC setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [setNVC disablesAutomaticKeyboardDismissal];
+
     [self presentModalViewController:setNVC animated:YES];
-    
     [set release];
     [setNVC release];
 }
+
 -(UISplitViewController*)createCategoryViewControllerWitnName:(NSString*)name
 {
     
@@ -196,7 +197,6 @@
 
     }
     
-        
     
 }
 #pragma mark--拉起搜索页面
@@ -207,6 +207,7 @@
     SearchViewController *seachVc  = [[SearchViewController alloc] init];
     UINavigationController *searchNavc = [[UINavigationController alloc] initWithRootViewController:seachVc];
     [self presentModalViewController:searchNavc animated:YES];
+    
     [seachVc release];
     [searchNavc release];
 

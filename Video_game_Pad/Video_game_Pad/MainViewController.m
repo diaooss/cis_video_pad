@@ -10,6 +10,8 @@
 #import "Tools_Header.h"
 #import "RequestTools.h"
 #import "MyNsstringTools.h"
+#import "UIViewController+MJPopupViewController.h"
+#import "MovieDetailViewController.h"
 
 
 #define degreesToRadinas(x) (M_PI * (x)/180.0)
@@ -137,8 +139,12 @@
 #pragma mark--cell的传值代理
 -(void)accessPlayViewControllerWithVideoID:(NSString *)videoID
 {
-    [self showAlertView];
-    NSLog(@"%@",videoID);
+    
+    MovieDetailViewController *detailPage = [[MovieDetailViewController alloc] init];
+   
+    [self.navigationController presentPopupViewController:detailPage animationType:MJPopupViewAnimationFade];
+
+    [detailPage release];
 }
 #pragma mark--banner的传值
 -(void)transferBannerInfor:(NSString *)string
@@ -164,6 +170,11 @@
 -(void)requestFailedWithResultDictionary:(NSDictionary *)dic
 {
     
+}
+#pragma mark--点击消失 的代理
+- (void)cancelButtonClicked:(MovieDetailViewController *)aSecondDetailViewController
+{
+    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
 }
 - (void)didReceiveMemoryWarning
 {

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @interface SetViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+{
+}
+
 
 @end
