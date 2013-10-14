@@ -28,7 +28,6 @@
         self.PicArry = [NSMutableArray arrayWithCapacity:2];
         // Initialization code
 #pragma mark---这个宽度和cell 的宽度一样!!!!!手动添加
-
         for (int i=0; i<12; i++) {
             GroupView * view = [[GroupView alloc]init];
             [view setDelegate:self];

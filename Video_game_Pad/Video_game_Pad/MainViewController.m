@@ -37,13 +37,7 @@
     }
     return self;
 }
--(void)loadView
-{
-    self.view = [[[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    [self.view setBackgroundColor:[UIColor yellowColor]];
 
-    
-}
 -(void)startRequetsRecommendInfo
 {
 
@@ -112,19 +106,14 @@
         cell.textLabel.text = [cateGoryArry objectAtIndex:indexPath.row/2];
         return cell;
     }
+//视图
     static NSString *detailReuse = @"reuseDetail";
     Cell *rootCell = [tableView dequeueReusableCellWithIdentifier:detailReuse];
     if (rootCell == Nil) {
         rootCell = [[[Cell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:detailReuse] autorelease];
         
         [rootCell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        //rootCell.transform =CGAffineTransformMakeRotation(degreesToRadinas(90));
-    }
-//*****************确保重用的cell起始位置不变
-    [rootCell.scrollerView setContentOffset:CGPointMake(0, 0)];
-//***加载过以后不再加载-------很重要-----
-    if (self.mark>indexPath.row||self.mark==9) {
-        return rootCell;
+        
     }
     NSArray * nameArry = [NSArray arrayWithObjects:@"英雄联盟",@"dota",@"dota2",@"魔兽争霸3",@"星际大战2", nil];
     if ([self.classDic valueForKey:[nameArry objectAtIndex:(indexPath.row-1)/2]]>0) {
