@@ -12,6 +12,7 @@
 @interface CategoryViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,myHttpRequestDelegate,CategoryCellDelegate>
 
 //通过作者列表加载视频
+@property (nonatomic,retain)NSMutableArray * allInforArry;//请求回来的所有视频
 @property(nonatomic,copy)NSString * showCategory;//当前的分类
 @property(nonatomic,copy)NSString * authorID;//作者的名字*****擦擦擦
 -(void)addOneAuthorProductions;//请求数据方法

@@ -37,6 +37,33 @@
 
     }
     [self setDelegate:self];
+    
+    //推荐主页
+    MainViewController * main = [[MainViewController alloc]init];
+    
+    [main setTitle:@"推荐"];
+    //视频收藏页面
+    CollectViewController * collect = [[CollectViewController alloc]init];
+    [collect setTitle:@"我的收藏"];
+    //我的关注
+    AttentionViewController * attention = [[AttentionViewController alloc]init];
+    [attention setTitle:@"我的关注"];
+    //
+    NSArray * nameArry = [NSArray arrayWithObjects:main,
+                          [self createCategoryViewControllerWitnName:@"英雄联盟"],
+                          [self createCategoryViewControllerWitnName:@"Dota"],
+                          [self createCategoryViewControllerWitnName:@"Dota2"],
+                          [self createCategoryViewControllerWitnName:@"魔兽争霸3"],
+                          [self createCategoryViewControllerWitnName:@"星际大战2"],
+                          
+                          collect,
+                          attention,
+                          nil];
+    [self setViewControllers:nameArry animated:YES];
+    [main release];
+    [collect release];
+    
+    
     return self;
 }
 
@@ -81,35 +108,12 @@
     [barItem release];
     [setBarItem release];
     
-       
+
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //推荐主页
-    MainViewController * main = [[MainViewController alloc]init];
-    
-    [main setTitle:@"推荐"];
-    //视频收藏页面
-    CollectViewController * collect = [[CollectViewController alloc]init];
-    [collect setTitle:@"我的收藏"];
-    //我的关注
-    AttentionViewController * attention = [[AttentionViewController alloc]init];
-    [attention setTitle:@"我的关注"];
-    //
-    NSArray * nameArry = [NSArray arrayWithObjects:main,
-                          [self createCategoryViewControllerWitnName:@"英雄联盟"],
-                          [self createCategoryViewControllerWitnName:@"Dota"],
-                          [self createCategoryViewControllerWitnName:@"Dota2"],
-                          [self createCategoryViewControllerWitnName:@"魔兽争霸3"],
-                          [self createCategoryViewControllerWitnName:@"星际大战2"],
-                          
-                          collect,
-                          attention,
-                          nil];
-    [self setViewControllers:nameArry animated:YES];
-    [main release];
-    [collect release];
+ 
     
     [self.view setExclusiveTouch:YES];
 }
@@ -182,11 +186,23 @@
     if (tabBarController.selectedIndex>0&&tabBarController.selectedIndex<6) {
     
     NSArray * nameArry = [NSArray arrayWithObjects:@"英雄联盟",@"dota",@"dota2",@"魔兽争霸3",@"星际大战2", nil];
-        UISplitViewController * splitViewController = (UISplitViewController *)viewController;
+    UISplitViewController * splitViewController = (UISplitViewController *)viewController;
     ListViewController * list= [[splitViewController viewControllers]objectAtIndex:0];
+    CategoryViewController * category= [[splitViewController viewControllers]objectAtIndex:1];
+    [category.allInforArry removeAllObjects];
     [list setCategory:[nameArry objectAtIndex:tabBarController.selectedIndex-1]];
-    [list requestAuthorListWithCategory:[nameArry objectAtIndex:tabBarController.selectedIndex-1]];
+        
+//    NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
+//    [user setValue: [nameArry objectAtIndex:tabBarController.selectedIndex-1] forKey:@"category"];
+//    [user synchronize];
+        [list requestAuthorListWithCategory:[nameArry objectAtIndex:tabBarController.selectedIndex-1]];
     }
+    
+    
+    
+    
+    
+    
     if (tabBarController.selectedIndex>5) {
         LandingViewController * land = [[LandingViewController alloc]init];
         UINavigationController * landNVC = [[UINavigationController alloc]initWithRootViewController:land];
@@ -203,11 +219,26 @@
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar                     // return NO to not become first responder
 {
     [self isHavePopView];
-    NSLog(@"点击");
+    //NSLog(@"点击");
     SearchViewController *seachVc  = [[SearchViewController alloc] init];
     UINavigationController *searchNavc = [[UINavigationController alloc] initWithRootViewController:seachVc];
     [self presentModalViewController:searchNavc animated:YES];
     
+//    [searchNavc setModalPresentationStyle:UIModalPresentationCurrentContext];
+//    [self.navigationController presentModalViewController:searchNavc animated:YES];
+//    
+//    [searchNavc setModalPresentationStyle:UIModalPresentationPageSheet];
+//    [searchNavc setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+//    [self presentModalViewController:searchNavc animated:YES];
+ 
+//    RootViewController * obj = (RootViewController *)[[UIApplication sharedApplication].keyWindow rootViewController];
+//    NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
+//    [user setValue:obj forKey:@"root"];
+//    [user synchronize];
+
+    [self.navigationController presentViewController:searchNavc animated:YES completion:^{
+        
+    }];
     [seachVc release];
     [searchNavc release];
 

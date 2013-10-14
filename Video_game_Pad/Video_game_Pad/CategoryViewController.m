@@ -18,7 +18,7 @@
     UITableView * _showTab;
 }
 @property (nonatomic,copy)NSString * oldAuthorID;//上一次请求的作者ID---------
-@property (nonatomic,retain)NSMutableArray * allInforArry;//请求回来的所有视频
+
 @property (nonatomic ,copy)NSString * choseString;//当前选择是最热....还是最新
 
 @end
@@ -41,8 +41,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        //NSLog(@"mark");
     }
     self.allInforArry = [NSMutableArray arrayWithCapacity:2];
+
     return self;
 }
 
@@ -131,15 +133,13 @@
     
     //NSString *pageStr = [NSString stringWithFormat:@"&dataPage=%d",flag];
     NSArray *strArry = [NSArray arrayWithObjects:@"http://121.199.57.44:88/webServer/PadGetMovielist.ashx",authorIdStr,nil];
-    NSLog(@"拼接字符串是:%@",[MyNsstringTools groupStrByAStrArray:strArry]);
+    //NSLog(@"作者在木一个类目下:%@",[MyNsstringTools groupStrByAStrArray:strArry]);
     [_categoryRequest requestWithUrl_Asynchronous:[MyNsstringTools groupStrByAStrArray:strArry]];
 
 }
 -(void)requestSuccessWithResultDictionary:(NSDictionary *)dic
 {
-    //NSLog(@"%@",dic);
     [_inforlabel setText:[NSString stringWithFormat:@"❤😘有%@",[dic valueForKey:@"allCount"]]];
-//    [self setAllInforArry:[dic valueForKey:@"result"]];
     
     if (![self.oldAuthorID isEqualToString:self.authorID]) {
         [self.allInforArry removeAllObjects];
@@ -156,16 +156,23 @@
 {
     [super viewWillDisappear:animated];
 //请求指针社为空
-    [_categoryRequest setDelegate:nil];
+     //NSLog(@"没内容??=%@",self.allInforArry);
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-    [self addOneAuthorProductions];
+    
+    //NSLog(@"%d",[self.allInforArry count]);
+    //[self addOneAuthorProductions];
+  
+//    [_showTab reloadData];
+    
+   /// NSLog(@"aaaaaaaaaaaaaaa------");
 
 }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    NSLog(@"----");
     // Dispose of any resources that can be recreated.
 }
 

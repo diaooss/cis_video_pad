@@ -24,6 +24,7 @@
    
     [root release];
     [rootNVC release];
+    NSLog(@"mark+++++");
     
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

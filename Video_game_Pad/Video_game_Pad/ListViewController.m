@@ -52,6 +52,10 @@
     [_authorListTab setDelegate:self];
     [_authorListTab setDataSource:self];
     
+    //NSLog(@"%@",[[NSUserDefaults standardUserDefaults]valueForKey:@"category"]);
+    
+
+    
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
@@ -100,11 +104,9 @@
         
     }
     self.oldIndexPath = indexPath;
-    //NSLog(@"是不是你😚");
     CategoryViewController * nowCategory= [[self.splitViewController viewControllers] objectAtIndex:1];
     [nowCategory setAuthorID:cell.authorName.text];
     [nowCategory addOneAuthorProductions];
-//    [nowCategory.view setBackgroundColor:[UIColor colorWithHue:arc4random()%255/255.0 saturation:arc4random()%255/255.0 brightness:arc4random()%255/255.0 alpha:arc4random()%255/255.0]];
 }
 #pragma mark---请求作者名字
 -(void)requestAuthorListWithCategory:(NSString *)name
@@ -114,9 +116,11 @@
     NSString *newCateStr = [NSString stringWithFormat:@"?category=%@",name];
     NSArray *strArry = [NSArray arrayWithObjects:@"http://121.199.57.44:88/webServer/PadGetAuthorlist.ashx",newCateStr,nil];
     [_Listrequest requestWithUrl_Asynchronous:[MyNsstringTools groupStrByAStrArray:strArry]];
+    //NSLog(@" 当前的请求串 ---%@",[MyNsstringTools groupStrByAStrArray:strArry]);
 }
 -(void)requestSuccessWithResultDictionary:(NSDictionary *)dic
 {
+//NSLog(@"----回来的结果%@",dic);
     [self setAuthorListArry:[dic valueForKey:@"AuthorResult"]];
     [_authorListTab reloadData];
 //让第一个处于选中装态
@@ -124,10 +128,16 @@
     AuthorListCell * cell =(AuthorListCell *) [_authorListTab cellForRowAtIndexPath:index];
     [cell setSelected:YES];
 //让详情界面开始加载第一个人的视频
-     CategoryViewController * nowCategory= [[self.splitViewController viewControllers] objectAtIndex:1];
+    CategoryViewController * nowCategory= [[self.splitViewController viewControllers] objectAtIndex:1];
     [nowCategory setAuthorID:cell.authorName.text];
+//NSLog(@"作者::::::::%@",[[self.authorListArry objectAtIndex:0]valueForKey:@"author"]);
     [nowCategory setShowCategory:self.category];
     [nowCategory addOneAuthorProductions];
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+//    [self requestAuthorListWithCategory:[[NSUserDefaults standardUserDefaults]valueForKey:@"category"]];
 }
 -(void)requestFailedWithResultDictionary:(NSDictionary *)dic
 {
@@ -136,7 +146,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    [_authorListTab removeAllSubviews];
+    
     // Dispose of any resources that can be recreated.
 }
 @end
