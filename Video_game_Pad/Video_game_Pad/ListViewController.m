@@ -53,11 +53,6 @@
     [self.view addSubview:_authorListTab];
     [_authorListTab setDelegate:self];
     [_authorListTab setDataSource:self];
-    
-    //NSLog(@"%@",[[NSUserDefaults standardUserDefaults]valueForKey:@"category"]);
-    
-
-    
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
@@ -101,13 +96,13 @@
         [cellOne setSelected:NO];
     }
     if(indexPath.row== self.oldIndexPath.row){
-        //NSLog(@"ceshi nide cishu ");
         return;
-        
     }
     self.oldIndexPath = indexPath;
 //加载当前作者的的视频
     [self.nowCategory setAuthorID:cell.authorName.text];
+    [self.nowCategory setFlag:1];
+    [self.nowCategory .allInforArry removeAllObjects];
     [self.nowCategory addOneAuthorProductions];
 }
 #pragma mark---请求作者名字
@@ -134,13 +129,15 @@
     [self.nowCategory setShowCategory:self.category];
     [self.nowCategory addOneAuthorProductions];
 }
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
+
 -(void)requestFailedWithResultDictionary:(NSDictionary *)dic
 {
     NSLog(@"--------%@",dic);
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [_Listrequest setDelegate:nil];
 }
 - (void)didReceiveMemoryWarning
 {

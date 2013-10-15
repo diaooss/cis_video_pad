@@ -16,7 +16,7 @@
     RequestTools * _categoryRequest;
     UILabel * _inforlabel;
     UITableView * _showTab;
-     int flag;//请求的page值
+     
 }
 @property (nonatomic,copy)NSString * oldAuthorID;//上一次请求的作者ID---------
 
@@ -47,7 +47,6 @@
         //NSLog(@"mark");
     }
     self.allInforArry = [NSMutableArray arrayWithCapacity:2];
-    flag = 1;
     return self;
 }
 
@@ -135,13 +134,13 @@
 #pragma mark 根据作者请求图片
 -(void)addOneAuthorProductions
 {
-    [Tools openLoadsign:self.view WithString:@"正在为你回调数据....."];
+    [Tools openLoadsign:self.view WithString:@"😂😂😂正在为你回调数据....."];
     _categoryRequest = [[RequestTools alloc] init];
     [_categoryRequest setDelegate:self];
     
     NSString *authorIdStr = [NSString stringWithFormat:@"?author=%@&sort=%@&category=%@",self.authorID,self.choseString,self.showCategory];
     
-    NSString *pageStr = [NSString stringWithFormat:@"&dataPage=%d",flag];
+    NSString *pageStr = [NSString stringWithFormat:@"&dataPage=%d",self.flag];
     NSArray *strArry = [NSArray arrayWithObjects:@"http://121.199.57.44:88/webServer/PadGetMovielist.ashx",authorIdStr,pageStr,nil];
     [_categoryRequest requestWithUrl_Asynchronous:[MyNsstringTools groupStrByAStrArray:strArry]];
 }
@@ -167,6 +166,8 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    [Tools closeLoadsign:self.view];
+    [_categoryRequest setDelegate:nil];
 //请求指针社为空
      //NSLog(@"没内容??=%@",self.allInforArry);
 }
@@ -347,7 +348,7 @@
 //刷新调用的方法----------下拉刷新
 -(void)refreshView{
     //下拉刷新--------
-    flag = 1;
+    self.flag = 1;
     [self.allInforArry removeAllObjects];
     [self addOneAuthorProductions];
     [self testFinishedLoadData];
@@ -356,7 +357,7 @@
 //加载调用的方法----------上拉加载
 -(void)getNextPageView{
     [self removeFooterView];
-    flag ++;
+    self.flag ++;
     [self addOneAuthorProductions];
     [self testFinishedLoadData];
 }-(void)testFinishedLoadData{
