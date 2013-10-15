@@ -43,7 +43,7 @@
     if(placeholderImage != _placeholderImage)
     {
         if (_placeholderImage!=nil) {
-             [_placeholderImage release];
+//           [_placeholderImage release];
             _placeholderImage=nil;
         }
         _placeholderImage = placeholderImage;

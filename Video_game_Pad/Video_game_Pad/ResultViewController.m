@@ -46,9 +46,10 @@
     searchResultTab = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.height, self.view.width-40) style:UITableViewStylePlain];
     searchResultTab.delegate = self;
     searchResultTab.dataSource = self;
-    //searchResultTab.showsVerticalScrollIndicator = NO;
+    searchResultTab.showsVerticalScrollIndicator = NO;
     [self.view addSubview:searchResultTab];
     [searchResultTab setBackgroundColor:[UIColor redColor]];
+    [searchResultTab setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     
 	// Do any additional setup after loading the view.
@@ -116,6 +117,7 @@
         cell = [[[SearchCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mark] autorelease];
         [cell setDelegate:self];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
     }
     for(id obj in cell.searchPicArry )
     {

@@ -88,6 +88,16 @@
 		234DF845180BF8130046E578 /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 234DF840180BF8120046E578 /* MGSplitViewController.m */; };
 		234DF846180BF8130046E578 /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 234DF842180BF8120046E578 /* MGSplitDividerView.m */; };
 		234DF847180BF8130046E578 /* MGSplitCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 234DF844180BF8130046E578 /* MGSplitCornersView.m */; };
+		2355EEE0180D0D800091B933 /* EGORefreshTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2355EEDC180D0D800091B933 /* EGORefreshTableFooterView.m */; };
+		2355EEE1180D0D800091B933 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2355EEDE180D0D800091B933 /* EGORefreshTableHeaderView.m */; };
+		2355EEEA180D11690091B933 /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2355EEE2180D11690091B933 /* blackArrow.png */; };
+		2355EEEB180D11690091B933 /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2355EEE3180D11690091B933 /* blackArrow@2x.png */; };
+		2355EEEC180D11690091B933 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2355EEE4180D11690091B933 /* blueArrow.png */; };
+		2355EEED180D11690091B933 /* blueArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2355EEE5180D11690091B933 /* blueArrow@2x.png */; };
+		2355EEEE180D11690091B933 /* grayArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2355EEE6180D11690091B933 /* grayArrow.png */; };
+		2355EEEF180D11690091B933 /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2355EEE7180D11690091B933 /* grayArrow@2x.png */; };
+		2355EEF0180D11690091B933 /* whiteArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2355EEE8180D11690091B933 /* whiteArrow.png */; };
+		2355EEF1180D11690091B933 /* whiteArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2355EEE9180D11690091B933 /* whiteArrow@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -244,6 +254,19 @@
 		234DF842180BF8120046E578 /* MGSplitDividerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitDividerView.m; sourceTree = "<group>"; };
 		234DF843180BF8130046E578 /* MGSplitCornersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitCornersView.h; sourceTree = "<group>"; };
 		234DF844180BF8130046E578 /* MGSplitCornersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitCornersView.m; sourceTree = "<group>"; };
+		2355EEDB180D0D800091B933 /* EGORefreshTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableFooterView.h; sourceTree = "<group>"; };
+		2355EEDC180D0D800091B933 /* EGORefreshTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableFooterView.m; sourceTree = "<group>"; };
+		2355EEDD180D0D800091B933 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		2355EEDE180D0D800091B933 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		2355EEDF180D0D800091B933 /* EGOViewCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOViewCommon.h; sourceTree = "<group>"; };
+		2355EEE2180D11690091B933 /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
+		2355EEE3180D11690091B933 /* blackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackArrow@2x.png"; sourceTree = "<group>"; };
+		2355EEE4180D11690091B933 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
+		2355EEE5180D11690091B933 /* blueArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrow@2x.png"; sourceTree = "<group>"; };
+		2355EEE6180D11690091B933 /* grayArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayArrow.png; sourceTree = "<group>"; };
+		2355EEE7180D11690091B933 /* grayArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grayArrow@2x.png"; sourceTree = "<group>"; };
+		2355EEE8180D11690091B933 /* whiteArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteArrow.png; sourceTree = "<group>"; };
+		2355EEE9180D11690091B933 /* whiteArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteArrow@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -573,6 +596,7 @@
 		23354C7417E93B5A0067385A /* thirdSDK */ = {
 			isa = PBXGroup;
 			children = (
+				2355EEDA180D0D110091B933 /* EGO */,
 				234DF848180BF81B0046E578 /* SplitevViewcontroller */,
 				2097386018093B22005EE6C9 /* MBHUD */,
 				2097385C18093B0D005EE6C9 /* DataCache */,
@@ -700,6 +724,34 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		2355EEDA180D0D110091B933 /* EGO */ = {
+			isa = PBXGroup;
+			children = (
+				2355EEF2180D116F0091B933 /* image */,
+				2355EEDB180D0D800091B933 /* EGORefreshTableFooterView.h */,
+				2355EEDC180D0D800091B933 /* EGORefreshTableFooterView.m */,
+				2355EEDD180D0D800091B933 /* EGORefreshTableHeaderView.h */,
+				2355EEDE180D0D800091B933 /* EGORefreshTableHeaderView.m */,
+				2355EEDF180D0D800091B933 /* EGOViewCommon.h */,
+			);
+			name = EGO;
+			sourceTree = "<group>";
+		};
+		2355EEF2180D116F0091B933 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				2355EEE2180D11690091B933 /* blackArrow.png */,
+				2355EEE3180D11690091B933 /* blackArrow@2x.png */,
+				2355EEE4180D11690091B933 /* blueArrow.png */,
+				2355EEE5180D11690091B933 /* blueArrow@2x.png */,
+				2355EEE6180D11690091B933 /* grayArrow.png */,
+				2355EEE7180D11690091B933 /* grayArrow@2x.png */,
+				2355EEE8180D11690091B933 /* whiteArrow.png */,
+				2355EEE9180D11690091B933 /* whiteArrow@2x.png */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
 		2374D31F18040A6D00DB8BC1 /* Set_ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -783,6 +835,14 @@
 				205888A018054CE0007ABDAD /* Next.png in Resources */,
 				205888A118054CE0007ABDAD /* Next@2x.png in Resources */,
 				2097385818093AD7005EE6C9 /* headerimage.png in Resources */,
+				2355EEEA180D11690091B933 /* blackArrow.png in Resources */,
+				2355EEEB180D11690091B933 /* blackArrow@2x.png in Resources */,
+				2355EEEC180D11690091B933 /* blueArrow.png in Resources */,
+				2355EEED180D11690091B933 /* blueArrow@2x.png in Resources */,
+				2355EEEE180D11690091B933 /* grayArrow.png in Resources */,
+				2355EEEF180D11690091B933 /* grayArrow@2x.png in Resources */,
+				2355EEF0180D11690091B933 /* whiteArrow.png in Resources */,
+				2355EEF1180D11690091B933 /* whiteArrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -856,6 +916,8 @@
 				234DF845180BF8130046E578 /* MGSplitViewController.m in Sources */,
 				234DF846180BF8130046E578 /* MGSplitDividerView.m in Sources */,
 				234DF847180BF8130046E578 /* MGSplitCornersView.m in Sources */,
+				2355EEE0180D0D800091B933 /* EGORefreshTableFooterView.m in Sources */,
+				2355EEE1180D0D800091B933 /* EGORefreshTableHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
