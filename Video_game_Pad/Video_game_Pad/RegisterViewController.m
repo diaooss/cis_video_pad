@@ -30,7 +30,7 @@
     self.view = [[[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
 
     for (int i = 0; i<3; i++) {
-        UITextField *contentFiled = [[UITextField alloc] initWithFrame:CGRectMake(170, 50+i*50+i*40, 400, 50)];
+        UITextField *contentFiled = [[UITextField alloc] initWithFrame:CGRectMake(70, 50+i*50+i*40, 400, 50)];
         contentFiled.tag = 100*i+100;
         contentFiled.backgroundColor = [UIColor yellowColor];
         contentFiled.textColor = [UIColor grayColor];
@@ -55,7 +55,7 @@
         [contentFiled release];
     }
     UIButton *registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    registerBtn.frame = CGRectMake(220, 320, 300, 60);
+    registerBtn.frame = CGRectMake(110, 320, 300, 60);
     registerBtn.backgroundColor = [UIColor greenColor];
     [registerBtn setTitle:@"立即注册" forState:UIControlStateNormal];
     [registerBtn setShowsTouchWhenHighlighted:YES];

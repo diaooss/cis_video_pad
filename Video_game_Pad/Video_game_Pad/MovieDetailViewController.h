@@ -10,10 +10,11 @@
 @protocol MJSecondPopupDelegate;
 
 @interface MovieDetailViewController : UIViewController
-@property(nonatomic,copy)NSString *movieNameStr;//显示电影名
-@property(nonatomic,copy)NSString *authorNameStr;//显示作者名
-@property(nonatomic,copy)NSString *durationStr;//显示时长
-@property(nonatomic,copy)NSString *requestIdStr;
+
+@property(nonatomic,copy)NSString *requestIdStr;//视频ID
+
+@property(nonatomic,retain)NSDictionary *detailDic;//详情字典
+
 @property (assign, nonatomic) id <MJSecondPopupDelegate>delegate;
 
 @end

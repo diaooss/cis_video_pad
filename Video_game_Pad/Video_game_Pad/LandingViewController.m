@@ -49,7 +49,7 @@
     self.navigationItem.title = @"登陆";
     
     //
-    eMailTextF = [[UITextField alloc] initWithFrame:CGRectMake(200, 80, 350, 50)];
+    eMailTextF = [[UITextField alloc] initWithFrame:CGRectMake(100, 80, 350, 50)];
     eMailTextF.delegate= self;
     eMailTextF.backgroundColor = [UIColor yellowColor];
     eMailTextF.textColor = [UIColor grayColor];

@@ -132,7 +132,6 @@
     MovieDetailViewController *detailPage = [[MovieDetailViewController alloc] init];
    
     [self.navigationController presentPopupViewController:detailPage animationType:MJPopupViewAnimationFade];
-
     [detailPage release];
 }
 #pragma mark--banner的传值

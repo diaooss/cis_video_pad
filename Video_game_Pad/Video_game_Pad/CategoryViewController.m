@@ -135,7 +135,7 @@
 #pragma mark 根据作者请求图片
 -(void)addOneAuthorProductions
 {
-    [Tools openLoadsign:self.view WithString:@"正在为你回调数据....."];
+    [Tools openLoadsign:self.view WithString:@"正在努力加载..."];
     _categoryRequest = [[RequestTools alloc] init];
     [_categoryRequest setDelegate:self];
     

@@ -36,7 +36,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"找回密码";
     
-    emailField = [[UITextField alloc] initWithFrame:CGRectMake(200, 50, 400, 40)];
+    emailField = [[UITextField alloc] initWithFrame:CGRectMake(80, 50, 400, 40)];
     emailField.delegate= self;
     emailField.backgroundColor = [UIColor whiteColor];
     emailField.textColor = [UIColor grayColor];

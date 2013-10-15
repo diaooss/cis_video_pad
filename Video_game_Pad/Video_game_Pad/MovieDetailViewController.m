@@ -15,9 +15,7 @@
 @implementation MovieDetailViewController
 - (void)dealloc
 {
-    self.movieNameStr = nil;
-    self.authorNameStr = nil;
-    self.durationStr = nil;
+    self.detailDic = nil;
     self.requestIdStr = nil;
     [super dealloc];
 }
@@ -40,6 +38,10 @@
     [titleLab setFont:[UIFont systemFontOfSize:20]];
     [self.view addSubview:titleLab];
     [titleLab release];
+    
+    
+    
+    
     
     
     

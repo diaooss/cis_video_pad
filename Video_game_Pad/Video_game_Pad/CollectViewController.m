@@ -7,7 +7,9 @@
 //
 
 #import "CollectViewController.h"
-
+#import "Tools.h"
+#import "LandingViewController.h"
+#import "UINavigationController+MyNavigationcontroller.h"
 @interface CollectViewController ()
 
 @end
@@ -27,9 +29,25 @@
 {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor blueColor]];
+    if ([Tools isHaveLogin]==NO) {
+        [self showLoginPage];
+    }
 	// Do any additional setup after loading the view.
 }
-
+-(void)showLoginPage
+{
+    LandingViewController *login = [[LandingViewController alloc] init];
+    UINavigationController *loginNavc = [[UINavigationController alloc] initWithRootViewController:login];
+    [loginNavc setModalPresentationStyle:UIModalPresentationFormSheet];
+    [loginNavc setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [loginNavc disablesAutomaticKeyboardDismissal];
+    
+    [self presentModalViewController:loginNavc animated:YES];
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self showLoginPage];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

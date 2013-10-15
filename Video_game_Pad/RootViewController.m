@@ -15,9 +15,8 @@
 #import "RecordViewController.h"
 #import "SearchViewController.h"
 #import "MyView.h"
-
+#import "UINavigationController+MyNavigationcontroller.h"
 #import "SetViewController.h"
-#import "LandingViewController.h"
 #import "UIViewController+MJPopupViewController.h"
 #import "MGSplitViewController.h"
 @interface RootViewController ()
