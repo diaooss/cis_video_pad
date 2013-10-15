@@ -55,7 +55,7 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     NSArray * segName = [NSArray arrayWithObjects:@"❤最新✌",@"😘最热😜", nil];
     UISegmentedControl * categorySeg =[[UISegmentedControl alloc]initWithItems:segName];
-    [categorySeg setFrame:CGRectMake(10, 5, 300, 70)];
+    [categorySeg setFrame:CGRectMake(0, 0, 300, 50)];
     [categorySeg setSegmentedControlStyle:UISegmentedControlStyleBar];
     [self.view addSubview:categorySeg];
     [categorySeg setSelectedSegmentIndex:0];
@@ -63,14 +63,16 @@
     [categorySeg addTarget:self action:@selector(segmentedControlChange:) forControlEvents:UIControlEventValueChanged];
     [categorySeg release];
     
-    _inforlabel  = [[UILabel alloc]initWithFrame:CGRectMake(self.view.width-300, 0, 200, 70)];
+    _inforlabel  = [[UILabel alloc]initWithFrame:CGRectMake(self.view.width-300, 0, 200, 50)];
     [self.view addSubview:_inforlabel];
     [_inforlabel setTextAlignment:NSTextAlignmentCenter];
+    [_inforlabel setBackgroundColor:[UIColor yellowColor]];
     [_inforlabel setText:@"😜骚年有1000部满足要求"];
     
-    _showTab = [[UITableView alloc]initWithFrame:CGRectMake(0, categorySeg.bottom, self.view.width-45, self.view.width-164) style:UITableViewStylePlain];
+    _showTab = [[UITableView alloc]initWithFrame:CGRectMake(0, categorySeg.bottom, self.view.width+75, self.view.width-140) style:UITableViewStylePlain];
     [_showTab setDelegate:self];
     [_showTab setDataSource:self];
+    [_showTab setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:_showTab];
     
     
@@ -105,6 +107,7 @@
     if (cell==nil) {
         cell = [[[CategoryCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mark] autorelease];
         [cell setDelegate:self];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
     for(id obj in cell.PicArry )
     {
@@ -133,9 +136,7 @@
     
     //NSString *pageStr = [NSString stringWithFormat:@"&dataPage=%d",flag];
     NSArray *strArry = [NSArray arrayWithObjects:@"http://121.199.57.44:88/webServer/PadGetMovielist.ashx",authorIdStr,nil];
-    //NSLog(@"作者在木一个类目下:%@",[MyNsstringTools groupStrByAStrArray:strArry]);
     [_categoryRequest requestWithUrl_Asynchronous:[MyNsstringTools groupStrByAStrArray:strArry]];
-
 }
 -(void)requestSuccessWithResultDictionary:(NSDictionary *)dic
 {
@@ -158,17 +159,7 @@
 //请求指针社为空
      //NSLog(@"没内容??=%@",self.allInforArry);
 }
--(void)viewWillAppear:(BOOL)animated
-{
-    
-    //NSLog(@"%d",[self.allInforArry count]);
-    //[self addOneAuthorProductions];
-  
-//    [_showTab reloadData];
-    
-   /// NSLog(@"aaaaaaaaaaaaaaa------");
 
-}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

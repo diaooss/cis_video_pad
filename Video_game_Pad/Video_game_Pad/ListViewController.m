@@ -8,10 +8,10 @@
 
 #import "ListViewController.h"
 #import "Tools_Header.h"
-#import "CategoryViewController.h"
 #import "RequestUrls.h"
 #import "MyNsstringTools.h"
 #import "AuthorListCell.h"
+#import "MGSplitViewController.h"
 @interface ListViewController ()
 
 {
@@ -19,11 +19,13 @@
 }
 @property(nonatomic,retain)NSIndexPath * oldIndexPath;
 @property (nonatomic,retain)NSMutableArray * authorListArry;
+
 @end
 
 @implementation ListViewController
 -(void)dealloc
 {
+    [self.nowCategory release];
     [_oldIndexPath release];
     [_Listrequest release];
     [_authorListArry release];
@@ -104,9 +106,9 @@
         
     }
     self.oldIndexPath = indexPath;
-    CategoryViewController * nowCategory= [[self.splitViewController viewControllers] objectAtIndex:1];
-    [nowCategory setAuthorID:cell.authorName.text];
-    [nowCategory addOneAuthorProductions];
+//加载当前作者的的视频
+    [self.nowCategory setAuthorID:cell.authorName.text];
+    [self.nowCategory addOneAuthorProductions];
 }
 #pragma mark---请求作者名字
 -(void)requestAuthorListWithCategory:(NSString *)name
@@ -128,16 +130,13 @@
     AuthorListCell * cell =(AuthorListCell *) [_authorListTab cellForRowAtIndexPath:index];
     [cell setSelected:YES];
 //让详情界面开始加载第一个人的视频
-    CategoryViewController * nowCategory= [[self.splitViewController viewControllers] objectAtIndex:1];
-    [nowCategory setAuthorID:cell.authorName.text];
-//NSLog(@"作者::::::::%@",[[self.authorListArry objectAtIndex:0]valueForKey:@"author"]);
-    [nowCategory setShowCategory:self.category];
-    [nowCategory addOneAuthorProductions];
+    [self.nowCategory setAuthorID:cell.authorName.text];
+    [self.nowCategory setShowCategory:self.category];
+    [self.nowCategory addOneAuthorProductions];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//    [self requestAuthorListWithCategory:[[NSUserDefaults standardUserDefaults]valueForKey:@"category"]];
 }
 -(void)requestFailedWithResultDictionary:(NSDictionary *)dic
 {

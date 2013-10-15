@@ -214,14 +214,13 @@
 -(void)requestSuccessWithResultDictionary:(NSDictionary *)dic
 {
     self.hotWordDic = dic;
-    NSLog(@"%@",dic);
+   // NSLog(@"%@",dic);
     [self showTitle:dic];
 
 }
 -(void)back
 {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    //[[UIApplication sharedApplication].keyWindow setRootViewController:[[NSUserDefaults standardUserDefaults]valueForKey:@"root"]];
 }
 -(void)viewWillDisappear:(BOOL)animated
 {

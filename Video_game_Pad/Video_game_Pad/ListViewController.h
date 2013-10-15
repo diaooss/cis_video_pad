@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "RequestTools.h"
+#import "CategoryViewController.h"
 @interface ListViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,myHttpRequestDelegate>
 {
     UITableView * _authorListTab;
 }
 @property(nonatomic,copy)NSString * category;
+@property (nonatomic,retain)CategoryViewController * nowCategory;
 -(void)requestAuthorListWithCategory:(NSString *)name;
 @end
