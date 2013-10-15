@@ -72,6 +72,7 @@
 //***风火轮
 + (void)openLoadsign:(UIView* )view WithString:(NSString *)string
 {
+    [self closeLoadsign:view];
     MBProgressHUD * hud =[MBProgressHUD showHUDAddedTo:view animated:YES];
     [hud setMode:MBProgressHUDModeIndeterminate];
     [hud setDetailsLabelText:string];
