@@ -35,6 +35,10 @@
     }
     return self;
 }
+-(void)loadView
+{
+    self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400, 400)];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

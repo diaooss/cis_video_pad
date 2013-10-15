@@ -18,6 +18,7 @@
 
 #import "SetViewController.h"
 #import "LandingViewController.h"
+#import "UIViewController+MJPopupViewController.h"
 @interface RootViewController ()
 
 {
@@ -202,17 +203,7 @@
     
     
     
-    
-    if (tabBarController.selectedIndex>5) {
-        LandingViewController * land = [[LandingViewController alloc]init];
-        UINavigationController * landNVC = [[UINavigationController alloc]initWithRootViewController:land];
-        [landNVC setModalPresentationStyle:UIModalPresentationPageSheet];
-        [self presentModalViewController:landNVC animated:YES];
-        [land release];
-        [landNVC release];
-
-    }
-    
+      
     
 }
 #pragma mark--拉起搜索页面
@@ -222,6 +213,8 @@
     //NSLog(@"点击");
     SearchViewController *seachVc  = [[SearchViewController alloc] init];
     UINavigationController *searchNavc = [[UINavigationController alloc] initWithRootViewController:seachVc];
+
+
     [self.navigationController presentViewController:searchNavc animated:YES completion:^{
         
     }];

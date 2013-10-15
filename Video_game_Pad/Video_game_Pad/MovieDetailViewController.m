@@ -13,6 +13,14 @@
 @end
 
 @implementation MovieDetailViewController
+- (void)dealloc
+{
+    self.movieNameStr = nil;
+    self.authorNameStr = nil;
+    self.durationStr = nil;
+    self.requestIdStr = nil;
+    [super dealloc];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +34,16 @@
 {
     self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 600, 600)];
     self.view.backgroundColor = [UIColor yellowColor];
-    self.navigationItem.title = @"详情";
+    UILabel *titleLab = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 40)];
+    titleLab.text = @"紧张进行中";
+    [titleLab setTextAlignment:NSTextAlignmentCenter];
+    [titleLab setFont:[UIFont systemFontOfSize:20]];
+    [self.view addSubview:titleLab];
+    [titleLab release];
+    
+    
+    
+    
     
 }
 -(void)hide

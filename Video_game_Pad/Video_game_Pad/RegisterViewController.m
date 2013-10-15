@@ -9,6 +9,8 @@
 #import "RegisterViewController.h"
 #import "Tools.h"
 #import "RequestTools.h"
+#import "RequestUrls.h"
+#import "MyNsstringTools.h"
 @interface RegisterViewController ()
 
 @end
@@ -90,12 +92,12 @@
 }
 -(void)cheeckEmail:(NSString *)email//邮箱格式是否正确提醒
 {
-//    self.isEmailExist = [RequestTools requestReturnYesOrOkWithCheckUrl_Synchronous:[NSString stringWithFormat:@"%@?email=%@",email]];
-//    if (!self.isEmailExist) {
-//        [self performSelectorOnMainThread:@selector(remindBoxWith:) withObject:@"邮箱已被注册.." waitUntilDone:NO];
-//        UITextField * emailText = (UITextField *)[self.view viewWithTag:200];
-//        [emailText becomeFirstResponder];
-//    }
+    self.isEmailExist = [RequestTools requestReturnYesOrOkWithCheckUrl_Synchronous:[NSString stringWithFormat:@"%@?email=%@",CHECK_EMAIL,email]];
+    if (!self.isEmailExist) {
+        [self performSelectorOnMainThread:@selector(remindBoxWith:) withObject:@"邮箱已被注册.." waitUntilDone:NO];
+        UITextField * emailText = (UITextField *)[self.view viewWithTag:200];
+        [emailText becomeFirstResponder];
+    }
 }
 
 
@@ -161,6 +163,44 @@
     UIAlertView  * alert = [[UIAlertView alloc]initWithTitle:@"Waring" message:string delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
     [alert release];
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    UITextField * pswText = (UITextField *)[self.view viewWithTag:300];
+    if (buttonIndex==0) {
+        [pswText becomeFirstResponder];
+    }
+    else
+    {
+        [self login];
+    }
+}
+//真正注册
+-(void)login
+{
+    UITextField * nameText = (UITextField *)[self.view viewWithTag:100];
+    UITextField * emailText = (UITextField *)[self.view viewWithTag:200];
+    UITextField * pswText = (UITextField *)[self.view viewWithTag:300];
+    NSArray *newArry  =[NSArray arrayWithObjects:REGISTER,[NSString stringWithFormat:@"?user_Name=%@&email=%@&psw=%@",nameText.text,emailText.text,pswText.text], nil];
+    BOOL registrIsOk = [RequestTools requestReturnYesOrOkWithCheckUrl_Synchronous:[MyNsstringTools groupStrByAStrArray:newArry]];
+    [self registerIsSuccess:registrIsOk];
+    [Tools openLoadsign:self.view WithString:@"正在注册......."];
+}
+-(void)registerIsSuccess:(BOOL)flag
+{
+    [Tools makeOneCautionViewOnView:[[UIApplication sharedApplication] keyWindow] withString:@"注册成功"];
+    UITextField * nameText = (UITextField *)[self.view viewWithTag:100];
+    UITextField * emailText = (UITextField *)[self.view viewWithTag:200];
+    UITextField * pswText = (UITextField *)[self.view viewWithTag:300];
+    [[NSUserDefaults standardUserDefaults] setObject:nameText.text forKey:@"user_name"];
+    [[NSUserDefaults standardUserDefaults] setObject:emailText.text forKey:@"user_email"];
+    [[NSUserDefaults standardUserDefaults] setObject:pswText.text forKey:@"user_psw"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [Tools closeLoadsign:self.view];
 }
 
 - (void)didReceiveMemoryWarning

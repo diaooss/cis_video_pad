@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ForgetPSWViewController : UIViewController<UITextFieldDelegate>
+#import "RequestTools.h"
+@interface ForgetPSWViewController : UIViewController<UITextFieldDelegate,myHttpRequestDelegate>
 {
     UITextField *emailField;//输入的验证邮箱
 

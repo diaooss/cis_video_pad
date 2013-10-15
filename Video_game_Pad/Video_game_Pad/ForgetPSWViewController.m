@@ -9,6 +9,8 @@
 #import "ForgetPSWViewController.h"
 #import "Tools_Header.h"
 #import "Tools.h"
+#import "MyNsstringTools.h"
+#import "RequestUrls.h"
 @interface ForgetPSWViewController ()
 
 @end
@@ -88,6 +90,8 @@
     if (emailField.text!=NULL&&[Tools cheeckEmail:emailField.text]==YES) {
         //发起请求
         NSString *newEmaiStr = [NSString stringWithFormat:@"?ToEmail=%@",[emailField text]];
+        BOOL flag =    [RequestTools requestReturnYesOrOkWithCheckUrl_Synchronous:[MyNsstringTools groupStrByAStrArray:[NSArray arrayWithObjects:GET_NEW_PSW_byEmail,newEmaiStr, nil]]];
+        [self checktoGetNewPSWIsOK:flag];
     }
     
 }

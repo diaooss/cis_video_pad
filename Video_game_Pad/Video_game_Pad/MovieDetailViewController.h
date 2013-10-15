@@ -13,6 +13,7 @@
 @property(nonatomic,copy)NSString *movieNameStr;//显示电影名
 @property(nonatomic,copy)NSString *authorNameStr;//显示作者名
 @property(nonatomic,copy)NSString *durationStr;//显示时长
+@property(nonatomic,copy)NSString *requestIdStr;
 @property (assign, nonatomic) id <MJSecondPopupDelegate>delegate;
 
 @end

@@ -12,7 +12,7 @@
 #import "MyNsstringTools.h"
 #import "UIViewController+MJPopupViewController.h"
 #import "MovieDetailViewController.h"
-
+#import "LandingViewController.h"
 
 #define degreesToRadinas(x) (M_PI * (x)/180.0)
 @interface MainViewController ()
@@ -139,7 +139,6 @@
 -(void)transferBannerInfor:(NSString *)string
 {
     NSLog(@"%@",string);
-    [self showAlertView];
 
 }
 #pragma mark--请求回调
@@ -165,6 +164,19 @@
 {
     [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
 }
+-(void)showLoginPage
+{
+    LandingViewController * land = [[LandingViewController alloc]init];
+    UINavigationController * landNVC = [[UINavigationController alloc]initWithRootViewController:land];
+    [self presentPopupViewController:landNVC animationType:MJPopupViewAnimationFade];
+    
+    //        [landNVC setModalPresentationStyle:UIModalPresentationPageSheet];
+    //        [self presentModalViewController:landNVC animated:YES];
+    [land release];
+    [landNVC release];
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
