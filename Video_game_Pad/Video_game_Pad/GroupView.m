@@ -8,6 +8,7 @@
 
 #import "GroupView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Tools_Header.h"
 @implementation GroupView
 -(void)dealloc
 {
@@ -27,6 +28,7 @@
         _asImageView.backgroundColor = [UIColor blackColor];
         [_asImageView setPlaceholderImage:[UIImage imageNamed:@"test.png"]];
         [self addSubview:_asImageView];
+        [_asImageView setContentMode:UIViewContentModeScaleAspectFill];
         [_asImageView release];
         
         self.timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(mainSize.width-50, _asImageView.frame.size.height-15, 50, 15)];
@@ -65,7 +67,7 @@
 
     _asImageView.frame = CGRectMake(0, 0, mainSize.width, mainSize.height*3/4);
     _timeLabel.frame = CGRectMake(mainSize.width-50, _asImageView.frame.size.height-15, 50, 15);
-    _nameLabel.frame = CGRectMake(0, mainSize.height*3/5, mainSize.width, mainSize.height*2/5);
+    _nameLabel.frame = CGRectMake(0, mainSize.height*3/5+15, mainSize.width, mainSize.height*2/5);
 }
 -(void)transferVideoID
 {

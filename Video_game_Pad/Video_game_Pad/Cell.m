@@ -45,7 +45,7 @@
     for (int i=0; i<2; i++) {
         for (int j=0; j<6; j++) {
             GroupView * view  = (GroupView *)[self.PicArry objectAtIndex:(i*6+j)];
-            [view setFrame:CGRectMake(padding+170*j, padding+240*i, (mainSize.width-240)/6, 250)];
+            [view setFrame:CGRectMake(10+170*j, padding+240*i, (mainSize.width-80)/6, 250)];
         }
     }
 }

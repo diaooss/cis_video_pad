@@ -19,10 +19,11 @@
 #import "SetViewController.h"
 #import "LandingViewController.h"
 #import "UIViewController+MJPopupViewController.h"
+#import "MGSplitViewController.h"
 @interface RootViewController ()
 
 {
-    UISplitViewController * split;
+  
 }
 @property(nonatomic,retain)UIPopoverController * MyPopoverController;
 @end
@@ -162,21 +163,24 @@
     [setNVC release];
 }
 
--(UISplitViewController*)createCategoryViewControllerWitnName:(NSString*)name
+-(MGSplitViewController*)createCategoryViewControllerWitnName:(NSString*)name
 {
     
 //配置tabbar
 //左视图控制器
     ListViewController * list = [[ListViewController alloc] init];
     CategoryViewController * category = [[CategoryViewController alloc]init];
-    split = [[UISplitViewController alloc]init];
+     MGSplitViewController * split = [[MGSplitViewController alloc]init];
+    [list setNowCategory:category];
+    [split setSplitPosition:200.0];
+    [split setShowsMasterInPortrait:YES];
     [split setTitle:name];
     NSArray * arry = [NSArray arrayWithObjects:list,category, nil];
     [split setViewControllers:arry];
 //释放
     [category release];
     [list release];
-    return split;
+    return [split autorelease];;
 }
 #pragma mark--UITabBarController代理
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
@@ -187,16 +191,13 @@
     if (tabBarController.selectedIndex>0&&tabBarController.selectedIndex<6) {
     
     NSArray * nameArry = [NSArray arrayWithObjects:@"英雄联盟",@"dota",@"dota2",@"魔兽争霸3",@"星际大战2", nil];
-    UISplitViewController * splitViewController = (UISplitViewController *)viewController;
+    MGSplitViewController * splitViewController = (MGSplitViewController *)viewController;
+        NSLog(@"%@",splitViewController);
     ListViewController * list= [[splitViewController viewControllers]objectAtIndex:0];
-    CategoryViewController * category= [[splitViewController viewControllers]objectAtIndex:1];
-    [category.allInforArry removeAllObjects];
+//每次点击都要清空数据
+    [list.nowCategory.allInforArry removeAllObjects];
     [list setCategory:[nameArry objectAtIndex:tabBarController.selectedIndex-1]];
-        
-//    NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
-//    [user setValue: [nameArry objectAtIndex:tabBarController.selectedIndex-1] forKey:@"category"];
-//    [user synchronize];
-        [list requestAuthorListWithCategory:[nameArry objectAtIndex:tabBarController.selectedIndex-1]];
+    [list requestAuthorListWithCategory:[nameArry objectAtIndex:tabBarController.selectedIndex-1]];
     }
     
     

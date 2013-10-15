@@ -84,6 +84,10 @@
 		23354CA517E99C080067385A /* MyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23354CA417E99C080067385A /* MyView.m */; };
 		233C7A5318079BF8000F1E30 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 233C7A5218079BF8000F1E30 /* CategoryCell.m */; };
 		233C7A571807E465000F1E30 /* AuthorListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 233C7A561807E465000F1E30 /* AuthorListCell.m */; };
+		234DF82F180BE7380046E578 /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 234DF82E180BE7380046E578 /* SearchCell.m */; };
+		234DF845180BF8130046E578 /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 234DF840180BF8120046E578 /* MGSplitViewController.m */; };
+		234DF846180BF8130046E578 /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 234DF842180BF8120046E578 /* MGSplitDividerView.m */; };
+		234DF847180BF8130046E578 /* MGSplitCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 234DF844180BF8130046E578 /* MGSplitCornersView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -232,6 +236,14 @@
 		233C7A541807D2E8000F1E30 /* RequestUrls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestUrls.h; sourceTree = "<group>"; };
 		233C7A551807E465000F1E30 /* AuthorListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorListCell.h; sourceTree = "<group>"; };
 		233C7A561807E465000F1E30 /* AuthorListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorListCell.m; sourceTree = "<group>"; };
+		234DF82D180BE7380046E578 /* SearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
+		234DF82E180BE7380046E578 /* SearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCell.m; sourceTree = "<group>"; };
+		234DF83F180BF8120046E578 /* MGSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitViewController.h; sourceTree = "<group>"; };
+		234DF840180BF8120046E578 /* MGSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitViewController.m; sourceTree = "<group>"; };
+		234DF841180BF8120046E578 /* MGSplitDividerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitDividerView.h; sourceTree = "<group>"; };
+		234DF842180BF8120046E578 /* MGSplitDividerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitDividerView.m; sourceTree = "<group>"; };
+		234DF843180BF8130046E578 /* MGSplitCornersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitCornersView.h; sourceTree = "<group>"; };
+		234DF844180BF8130046E578 /* MGSplitCornersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitCornersView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +274,8 @@
 				207D1A0318094027002C739A /* SearchViewController.m */,
 				207D1A0418094027002C739A /* ResultViewController.h */,
 				207D1A0518094027002C739A /* ResultViewController.m */,
+				234DF82D180BE7380046E578 /* SearchCell.h */,
+				234DF82E180BE7380046E578 /* SearchCell.m */,
 			);
 			name = "Search-view";
 			sourceTree = "<group>";
@@ -559,6 +573,7 @@
 		23354C7417E93B5A0067385A /* thirdSDK */ = {
 			isa = PBXGroup;
 			children = (
+				234DF848180BF81B0046E578 /* SplitevViewcontroller */,
 				2097386018093B22005EE6C9 /* MBHUD */,
 				2097385C18093B0D005EE6C9 /* DataCache */,
 				2058889A18054B44007ABDAD /* MYBtn */,
@@ -669,6 +684,20 @@
 				207D1A091809405D002C739A /* RecordViewController.m */,
 			);
 			name = Record_view;
+			sourceTree = "<group>";
+		};
+		234DF848180BF81B0046E578 /* SplitevViewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				234DF83F180BF8120046E578 /* MGSplitViewController.h */,
+				234DF840180BF8120046E578 /* MGSplitViewController.m */,
+				234DF841180BF8120046E578 /* MGSplitDividerView.h */,
+				234DF842180BF8120046E578 /* MGSplitDividerView.m */,
+				234DF843180BF8130046E578 /* MGSplitCornersView.h */,
+				234DF844180BF8130046E578 /* MGSplitCornersView.m */,
+			);
+			name = SplitevViewcontroller;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		2374D31F18040A6D00DB8BC1 /* Set_ViewController */ = {
@@ -823,6 +852,10 @@
 				207D1A0618094027002C739A /* SearchViewController.m in Sources */,
 				207D1A0718094028002C739A /* ResultViewController.m in Sources */,
 				207D1A0A1809405D002C739A /* RecordViewController.m in Sources */,
+				234DF82F180BE7380046E578 /* SearchCell.m in Sources */,
+				234DF845180BF8130046E578 /* MGSplitViewController.m in Sources */,
+				234DF846180BF8130046E578 /* MGSplitDividerView.m in Sources */,
+				234DF847180BF8130046E578 /* MGSplitCornersView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

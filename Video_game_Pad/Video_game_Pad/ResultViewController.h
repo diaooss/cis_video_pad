@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ResultViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+#import "RequestTools.h"
+#import "SearchCell.h"
+@interface ResultViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,myHttpRequestDelegate,SearchCellDelegate>
 {
     UITableView *searchResultTab;
     
