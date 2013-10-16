@@ -191,6 +191,8 @@
     
     NSArray * nameArry = [NSArray arrayWithObjects:@"英雄联盟",@"dota",@"dota2",@"魔兽争霸3",@"星际大战2", nil];
     MGSplitViewController * splitViewController = (MGSplitViewController *)viewController;
+        [splitViewController setDividerStyle:MGSplitViewDividerStylePaneSplitter];
+        //[splitViewController setDividerView:nil];
     ListViewController * list= [[splitViewController viewControllers]objectAtIndex:0];
 //每次点击都要清空数据
     [list.nowCategory.allInforArry removeAllObjects];

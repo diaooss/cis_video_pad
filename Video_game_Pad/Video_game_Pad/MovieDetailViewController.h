@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 @protocol MJSecondPopupDelegate;
 
-@interface MovieDetailViewController : UIViewController
+@interface MovieDetailViewController : UIViewController<UIWebViewDelegate>
+{
+    UIWebView *web ;
+}
 
 @property(nonatomic,copy)NSString *requestIdStr;//视频ID
 

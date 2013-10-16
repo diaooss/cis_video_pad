@@ -27,6 +27,8 @@
     [_authorPic release];
     
     self.authorName = [[UILabel alloc]init];
+    [_authorName setLineBreakMode:NSLineBreakByCharWrapping];
+    _authorName.backgroundColor = [UIColor clearColor];
     [self.contentView addSubview:_authorName];
     [_authorName release];
     return self;
@@ -34,7 +36,7 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    [_authorPic setFrame:CGRectMake(10, 0, self.height, self.height)];
+    [_authorPic setFrame:CGRectMake(10, 5, self.height, self.height-10)];
     [_authorName setFrame:CGRectMake(_authorPic.right+20, self.height-40, self.width/3, 40)];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

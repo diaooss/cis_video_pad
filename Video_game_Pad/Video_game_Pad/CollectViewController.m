@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor blueColor]];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     if ([Tools isHaveLogin]==NO) {
         [self showLoginPage];
     }
@@ -41,7 +41,6 @@
     [loginNavc setModalPresentationStyle:UIModalPresentationFormSheet];
     [loginNavc setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [loginNavc disablesAutomaticKeyboardDismissal];
-    
     [self presentModalViewController:loginNavc animated:YES];
 }
 -(void)viewWillAppear:(BOOL)animated

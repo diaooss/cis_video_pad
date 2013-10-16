@@ -47,10 +47,12 @@
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
 	// Do any additional setup after loading the view.
-    _authorListTab = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,320, self.view.height) style:UITableViewStylePlain];
+    _authorListTab = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,200, self.view.width-93) style:UITableViewStylePlain];
     [_authorListTab setBackgroundColor:[UIColor whiteColor]];
-
+    _authorListTab.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_authorListTab];
+    _authorListTab.showsVerticalScrollIndicator = NO;
+    _authorListTab.separatorColor = [UIColor clearColor];
     [_authorListTab setDelegate:self];
     [_authorListTab setDataSource:self];
 }
@@ -65,11 +67,11 @@
 }
 -(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 80.0;
+    return 30.0;
 }
 -(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 70.0;
+    return 80.0;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

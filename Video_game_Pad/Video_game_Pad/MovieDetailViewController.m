@@ -13,12 +13,13 @@
 @end
 
 @implementation MovieDetailViewController
-- (void)dealloc
-{
-    self.detailDic = nil;
-    self.requestIdStr = nil;
-    [super dealloc];
-}
+//- (void)dealloc
+//{
+//    //[web release];
+//    self.detailDic = nil;
+//    self.requestIdStr = nil;
+//    [super dealloc];
+//}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,14 +31,25 @@
 }
 -(void)loadView
 {
-    self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 600, 600)];
+    self.view = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 600, 600)] autorelease];
     self.view.backgroundColor = [UIColor yellowColor];
-    UILabel *titleLab = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 40)];
-    titleLab.text = @"紧张进行中";
-    [titleLab setTextAlignment:NSTextAlignmentCenter];
-    [titleLab setFont:[UIFont systemFontOfSize:20]];
-    [self.view addSubview:titleLab];
-    [titleLab release];
+       
+    
+    web = [[UIWebView alloc] initWithFrame:CGRectMake(10, 20, 400, 400)];
+    web.backgroundColor = [UIColor redColor];
+    web.delegate = self;
+    web.scalesPageToFit = YES;
+    [self.view addSubview:web];
+
+    NSURLRequest *detailRequest =
+    [NSURLRequest requestWithURL:nil cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5.0];
+    
+    
+    
+
+
+   // [web loadRequest:detailRequest];
+
     
     
     
@@ -46,6 +58,19 @@
     
     
     
+    
+    
+}
+-(void)webViewDidStartLoad:(UIWebView *)webView
+{
+    
+}
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    
+}
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
     
 }
 -(void)hide

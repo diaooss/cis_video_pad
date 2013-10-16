@@ -10,6 +10,7 @@
 #import "Tools_Header.h"
 #import "HelpAngAgreementViewController.h"
 #import "FeedBackViewController.h"
+#import "Tools.h"
 @interface SetViewController ()
 
 @end
@@ -131,7 +132,8 @@
     if (indexPath.section == 0) {
         switch (indexPath.row) {
             case 0:
-                [self showAlertView];
+                [self showAlertViewWithMessage:@"清除缓存?"];
+                
                 break;
             default:
                 break;
@@ -155,13 +157,13 @@
     if (indexPath.section == 2) {
         switch (indexPath.row) {
             case 0:
-                [self showAlertView];
+                [self showAlertViewWithMessage:@"前往APPStore评价" ];
                 break;
             case 1:
-                [self showAlertView];
+                [self showAlertViewWithMessage:@"已是最新版."];
                 break;
             case 2:
-                [self showAlertView];
+                [self showAlertViewWithMessage:@"敬请期待"];
                 break;
             default:
                 break;
@@ -182,9 +184,9 @@
     [self.navigationController pushViewController:helpAndAgreement animated:YES];
     [helpAndAgreement release];
 }
--(void)showAlertView
+-(void)showAlertViewWithMessage:(NSString *)message
 {
-    UIAlertView *tips = [[UIAlertView alloc] initWithTitle:@"😉紧张施工中..." message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    UIAlertView *tips = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"😉%@.",message] message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [tips show];
     [tips release];
 
@@ -192,9 +194,15 @@
 -(void)isGetNotifation:(UISwitch *)sender
 {
     
-    UIAlertView *tips = [[UIAlertView alloc] initWithTitle:@"😉就快好了..." message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [tips show];
-    [tips release];
+    if (sender.on == YES) {
+        [Tools makeOneCautionViewOnView:self.view withString:@"已开启推送"];
+    }else
+    {
+        [Tools makeOneCautionViewOnView:self.view withString:@"已关闭推送"];
+
+    }
+    
+    
     
     
 }

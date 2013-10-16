@@ -53,11 +53,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.flag = 1;
 	// Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    NSArray * segName = [NSArray arrayWithObjects:@"❤最新✌",@"😘最热😜", nil];
+    NSArray * segName = [NSArray arrayWithObjects:@"最新",@"😘最热", nil];
     UISegmentedControl * categorySeg =[[UISegmentedControl alloc]initWithItems:segName];
-    [categorySeg setFrame:CGRectMake(0, 0, 300, 50)];
+    [categorySeg setFrame:CGRectMake(20, 10, 300, 35)];
     [categorySeg setSegmentedControlStyle:UISegmentedControlStyleBar];
     [self.view addSubview:categorySeg];
     [categorySeg setSelectedSegmentIndex:0];
@@ -69,12 +70,14 @@
     [self.view addSubview:_inforlabel];
     [_inforlabel setTextAlignment:NSTextAlignmentCenter];
     [_inforlabel setBackgroundColor:[UIColor yellowColor]];
-    [_inforlabel setText:@"😜骚年有1000部满足要求"];
+//    [_inforlabel setText:@"😜骚年有1000部满足要求"];
     
-    _showTab = [[UITableView alloc]initWithFrame:CGRectMake(0, categorySeg.bottom, self.view.width+75, self.view.width-140) style:UITableViewStylePlain];
+    _showTab = [[UITableView alloc]initWithFrame:CGRectMake(0, categorySeg.bottom+5, self.view.width+75, self.view.width-140) style:UITableViewStylePlain];
     [_showTab setDelegate:self];
     [_showTab setDataSource:self];
-    [_showTab setBackgroundColor:[UIColor redColor]];
+    _showTab.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _showTab.separatorColor = [UIColor clearColor];
+    [_showTab setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:_showTab];
     
     
@@ -147,7 +150,7 @@
 }
 -(void)requestSuccessWithResultDictionary:(NSDictionary *)dic
 {
-    [_inforlabel setText:[NSString stringWithFormat:@"有%@",[dic valueForKey:@"allCount"]]];
+    [_inforlabel setText:[NSString stringWithFormat:@"共%@部作品",[dic valueForKey:@"allCount"]]];
     
     if (![self.oldAuthorID isEqualToString:self.authorID]) {
         [self.allInforArry removeAllObjects];
