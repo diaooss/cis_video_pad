@@ -20,6 +20,8 @@
 @implementation RecordViewController
 - (void)dealloc
 {
+    [_recordArry release];
+    [eiditBtn release];
     [_recordTab release];
     [super dealloc];
 }
