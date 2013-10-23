@@ -10,8 +10,8 @@
 
 @interface RecordViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
-    UITableView *recordTab;
-    
+    UITableView * _recordTab;
+    UIButton *eiditBtn;
 }
-
+@property (nonatomic ,retain)NSMutableArray * recordArry;
 @end

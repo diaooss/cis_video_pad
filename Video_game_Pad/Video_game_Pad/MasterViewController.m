@@ -67,7 +67,7 @@
     [verticalControl2 release];
 	[verticalControl2 addTarget:self action:@selector(segmentResultChange:) forControlEvents:UIControlEventValueChanged];
     
-    //判断是否登陆**********
+//判断是否登陆**********
     self.detail.specialMark = YES;
     [self showUesrCollectVideo];
     

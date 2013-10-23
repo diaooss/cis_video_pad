@@ -240,45 +240,4 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-//
-//{
-//    
-//    // 这里可以做子view自己想做的事，做完后，事件继续上传，就可以让其父类，甚至父viewcontroller获取到这个事件了
-//    
-//    [[self nextResponder]touchesBegan:touches withEvent:event];
-//    NSLog(@"000000000");
-//    
-//}
-//
-//
-//- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-//
-//{
-//    
-//    [[self nextResponder]touchesEnded:touches withEvent:event];
-//    
-//}
-//
-//
-//- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-//
-//{
-//    
-//    [[self nextResponder] touchesCancelled:touches withEvent:event];
-//    
-//}
-//
-//
-//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-//
-//{
-//    
-//    [[self nextResponder] touchesMoved:touches withEvent:event];
-//}
-//- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
-//{
-//    
-//    return YES;
-//}
 @end

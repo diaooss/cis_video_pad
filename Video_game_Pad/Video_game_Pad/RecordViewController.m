@@ -8,6 +8,9 @@
 
 #import "RecordViewController.h"
 #import "Tools_Header.h"
+#import "CategoryListCell.h"
+#import "HandleData.h"
+#import "Video.h"
 @interface RecordViewController ()
 
 
@@ -17,7 +20,7 @@
 @implementation RecordViewController
 - (void)dealloc
 {
-    [recordTab release];
+    [_recordTab release];
     [super dealloc];
 }
 
@@ -36,40 +39,90 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setBackgroundColor:[UIColor grayColor]];
     
-    recordTab = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 300,556) style:UITableViewStylePlain];
-    recordTab.dataSource = self;
-    recordTab.delegate = self;
-    recordTab.showsVerticalScrollIndicator = NO;
+    eiditBtn = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+    eiditBtn.frame = CGRectMake(280, 0, 40, 30);
+    [eiditBtn addTarget:self action:@selector(setEditing:animated:) forControlEvents:UIControlEventTouchUpInside];
+    [eiditBtn setBackgroundImage:[UIImage imageNamed:@"qie_110.png"] forState:UIControlStateNormal];
+    UIBarButtonItem *eiditBar = [[UIBarButtonItem alloc] initWithCustomView:eiditBtn];
+    self.navigationItem.rightBarButtonItem = eiditBar;
+    [eiditBar release];
     
-    [self.view addSubview:recordTab];
+    
+    _recordTab = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 300,556) style:UITableViewStylePlain];
+    _recordTab.dataSource = self;
+    _recordTab.delegate = self;
+    _recordTab.showsVerticalScrollIndicator = NO;
+    
+    [self.view addSubview:_recordTab];
     
     
 	// Do any additional setup after loading the view.
 }
-#pragma mark--列表代理方法
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return YES;
+}
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    [super setEditing:editing animated:animated];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(done)];
+    [eiditBtn addGestureRecognizer:tap];
+    [tap release];
+    [_recordTab setEditing:editing animated:animated];
+}
+- (void)done{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(setEditing:animated:)];
+    [eiditBtn addGestureRecognizer:tap];
+    [tap release];
+    [_recordTab setEditing:NO animated:YES];
+}
+#pragma mark--cell删除样式
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+#pragma mark--cell删除
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete){
+        //写删除方法
+        CategoryListCell * cell = (CategoryListCell *)[tableView cellForRowAtIndexPath:indexPath];
+        Video * video = [[Video alloc]initWithID:cell.ID];
+        [HandleData deleteOneVideo:video];
+        self.recordArry = [HandleData allVideosInformation];
+        [_recordTab reloadData];
+    }
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
-    
+    return [self.recordArry count];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *reuseName = @"use";
-    UITableViewCell *cell  = [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseName];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseName] autorelease];
-        cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    static NSString * mark = @"mark";
+    CategoryListCell * cell = [tableView dequeueReusableCellWithIdentifier:mark];
+    if (nil==cell) {
+        cell = [[CategoryListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mark];
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
-    cell.textLabel.text = @"星级争霸之阿里巴巴";
-    cell.detailTextLabel.text = @"视频简介啊发卡女款;你; 你卡率那块";
-    
-    cell.imageView.image = [UIImage imageNamed:@"headerimage.png"];
+    Video * video = [self.recordArry objectAtIndex:indexPath.row];
+    [cell.asImageView setImage:[UIImage imageWithContentsOfFile:video.videoPicture]];
+    [cell.nameLabel setText:video.videoName];
+    [cell setVideoID:video.videoID];
+    [cell.attentionTimeLabel setText:video.videoPopular];
+    [cell.timeLabel setText:video.videoTime];
+    cell.ID = video.ID;
     return cell;
 }
+-(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
