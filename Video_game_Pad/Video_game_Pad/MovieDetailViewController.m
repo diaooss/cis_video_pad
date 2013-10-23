@@ -34,32 +34,6 @@
     self.view = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 600, 600)] autorelease];
     self.view.backgroundColor = [UIColor yellowColor];
        
-    
-    web = [[UIWebView alloc] initWithFrame:CGRectMake(10, 20, 400, 400)];
-    web.backgroundColor = [UIColor redColor];
-    web.delegate = self;
-    web.scalesPageToFit = YES;
-    [self.view addSubview:web];
-
-    NSURLRequest *detailRequest =
-    [NSURLRequest requestWithURL:nil cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5.0];
-    
-    
-    
-
-
-   // [web loadRequest:detailRequest];
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {
@@ -73,17 +47,37 @@
 {
     
 }
--(void)hide
-{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(cancelButtonClicked:)]) {
-        [self.delegate cancelButtonClicked:nil];
-    }
-}
+//-(void)hide
+//{
+//    if (self.delegate && [self.delegate respondsToSelector:@selector(cancelButtonClicked:)]) {
+//        [self.delegate cancelButtonClicked:nil];
+//    }
+//}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view.
+    
+//    web = [[UIWebView alloc] initWithFrame:CGRectMake(10, 20, 400, 400)];
+//    web.backgroundColor = [UIColor redColor];
+//    web.delegate = self;
+//    web.scalesPageToFit = YES;
+//    [self.view addSubview:web];
+//    NSURLRequest *detailRequest =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com/index.php?tn=monline_5_dg"] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5.0];
+//    [web loadRequest:detailRequest];
+    
+    UIWebView* WebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 90, 100)];
+    [WebView setUserInteractionEnabled:NO];
+    [WebView setBackgroundColor:[UIColor clearColor]];
+    [WebView setDelegate:self];
+    [WebView setOpaque:NO];//使网页透明
+    [self.view addSubview:WebView];
+    
+    NSString *path = @"http://www.baidu.com";
+    NSURL *url = [NSURL URLWithString:path];
+    [WebView loadRequest:[NSURLRequest requestWithURL:url]];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,5 +85,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSLog(@"---");
+ 
+    
+    
+    
+}
 @end

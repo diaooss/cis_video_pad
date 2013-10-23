@@ -17,8 +17,8 @@
 #define degreesToRadinas(x) (M_PI * (x)/180.0)
 @interface MainViewController ()
 {
+    BOOL flag;
 }
-
 @end
 
 @implementation MainViewController
@@ -36,6 +36,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        flag = YES;
     }
     return self;
 }
@@ -77,7 +78,7 @@
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 0, 0)] ;//创建一个视图
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,0,0.1)] ;//创建一个视图
     headerView.backgroundColor = [UIColor clearColor];
     
     Banner_view * banner = [[Banner_view alloc]initWithFrame:CGRectMake(0, 0, 1024, self.view.width/4) ];
@@ -131,7 +132,7 @@
     
     MovieDetailViewController *detailPage = [[MovieDetailViewController alloc] init];
    
-    [self.navigationController presentPopupViewController:detailPage animationType:MJPopupViewAnimationFade];
+    [self presentPopupViewController:detailPage animationType:MJPopupViewAnimationFade];
     [detailPage release];
 }
 #pragma mark--banner的传值
@@ -180,6 +181,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (flag==YES) {
+        [mainTab setOrigin:CGPointMake(0, -20)];
+    }
+    else
+    {
+    [mainTab setOrigin:CGPointMake(0,0)];
+    }
+    flag=NO;
 }
 -(void)viewWillDisappear:(BOOL)animated
 {

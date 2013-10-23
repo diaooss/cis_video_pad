@@ -16,7 +16,6 @@
 -(void)dealloc
 {
     [self.PicArry release];
-    [self.scrollerView release];
     [super dealloc];
    
 }

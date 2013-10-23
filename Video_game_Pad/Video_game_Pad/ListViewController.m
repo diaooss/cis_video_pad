@@ -127,6 +127,7 @@
     AuthorListCell * cell =(AuthorListCell *) [_authorListTab cellForRowAtIndexPath:index];
     [cell setSelected:YES];
 //让详情界面开始加载第一个人的视频
+    [self.nowCategory.allInforArry removeAllObjects];
     [self.nowCategory setAuthorID:cell.authorName.text];
     [self.nowCategory setShowCategory:self.category];
     [self.nowCategory addOneAuthorProductions];

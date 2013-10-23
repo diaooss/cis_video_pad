@@ -18,7 +18,7 @@
     UITableView * _showTab;
      
 }
-@property (nonatomic,copy)NSString * oldAuthorID;//上一次请求的作者ID---------
+//@property (nonatomic,copy)NSString * oldAuthorID;//上一次请求的作者ID---------
 
 @property (nonatomic ,copy)NSString * choseString;//当前选择是最热....还是最新
 
@@ -30,7 +30,7 @@
     [_refreshHeaderView release];
     [_refreshFooterView release];
     [self.showCategory release];
-    [self.oldAuthorID release];
+    //[self.oldAuthorID release];
     [self.choseString release];
     [self.allInforArry release];
     [_categoryRequest release];
@@ -82,7 +82,6 @@
     
     
     //为加载更多做准备
-    self.oldAuthorID = self.authorID;
     [self createHeaderView];
     [self setFooterView];
     
@@ -138,7 +137,6 @@
 -(void)addOneAuthorProductions
 {
     [Tools openLoadsign:self.view WithString:@"正在努力加载..."];
-    [Tools openLoadsign:self.view WithString:@"正在努力加载..."];
     _categoryRequest = [[RequestTools alloc] init];
     [_categoryRequest setDelegate:self];
     
@@ -152,16 +150,14 @@
 {
     [_inforlabel setText:[NSString stringWithFormat:@"共%@部作品",[dic valueForKey:@"allCount"]]];
     
-    if (![self.oldAuthorID isEqualToString:self.authorID]) {
-        [self.allInforArry removeAllObjects];
-        self.oldAuthorID = self.authorID;
-    }
     for(id obj in [dic valueForKey:@"result"] )
     {
         [self.allInforArry addObject:obj];
     }
 //更新界面
+    
     [_showTab reloadData];
+    NSLog(@"mark..........");
     [Tools closeLoadsign:self.view];
     if ([dic valueForKey:@"allCount"]==0) {
 #warning 没数据时候-----------------

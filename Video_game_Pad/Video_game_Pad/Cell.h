@@ -17,9 +17,7 @@
 
 @interface Cell : UITableViewCell<GroupViewDelegate>
 
-@property(nonatomic,retain)UIScrollView * scrollerView;//滑动视图---------为cell的重用;;
 @property(nonatomic,retain)NSMutableArray * PicArry;//装载scrollView 的12个子视图
-
 @property (nonatomic ,assign)id<CellDelegate>delegate;
 //调用后开始传递网络数据  加载图片
 -(void)loadInforWithNetArry:(NSArray *)netArry;

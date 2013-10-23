@@ -10,8 +10,8 @@
 #import "MainViewController.h"
 #import "CategoryViewController.h"
 #import "ListViewController.h"
-#import "CollectViewController.h"
-#import "AttentionViewController.h"
+#import "MasterViewController.h"
+#import "DetailViewController.h"
 #import "RecordViewController.h"
 #import "SearchViewController.h"
 #import "MyView.h"
@@ -43,12 +43,7 @@
     MainViewController * main = [[MainViewController alloc]init];
     
     [main setTitle:@"推荐"];
-    //视频收藏页面
-    CollectViewController * collect = [[CollectViewController alloc]init];
-    [collect setTitle:@"我的收藏"];
-    //我的关注
-    AttentionViewController * attention = [[AttentionViewController alloc]init];
-    [attention setTitle:@"我的关注"];
+
     //
     NSArray * nameArry = [NSArray arrayWithObjects:main,
                           [self createCategoryViewControllerWitnName:@"英雄联盟"],
@@ -56,15 +51,10 @@
                           [self createCategoryViewControllerWitnName:@"Dota2"],
                           [self createCategoryViewControllerWitnName:@"魔兽争霸3"],
                           [self createCategoryViewControllerWitnName:@"星际大战2"],
-                          
-                          collect,
-                          attention,
+                          [self creatPersonViewControllerWithName:@"个人中心"],
                           nil];
     [self setViewControllers:nameArry animated:YES];
     [main release];
-    [collect release];
-    
-    
     return self;
 }
 
@@ -161,7 +151,23 @@
     [set release];
     [setNVC release];
 }
-
+-(MGSplitViewController *)creatPersonViewControllerWithName:(NSString *)name
+{
+    MasterViewController * master = [[MasterViewController alloc]init];
+    DetailViewController * detail = [[DetailViewController alloc]init];
+    
+    MGSplitViewController * split = [[MGSplitViewController alloc]init];
+    [split setDividerView:nil];
+    [master setDetail:detail];
+    [split setSplitPosition:230.0];
+    //[split setShowsMasterInPortrait:YES];
+    [split setTitle:name];
+    NSArray * arry = [NSArray arrayWithObjects:master,detail, nil];
+    [split setViewControllers:arry];
+    [master release];
+    [detail release];
+    return [split autorelease];
+}
 -(MGSplitViewController*)createCategoryViewControllerWitnName:(NSString*)name
 {
     
@@ -170,6 +176,7 @@
     ListViewController * list = [[ListViewController alloc] init];
     CategoryViewController * category = [[CategoryViewController alloc]init];
      MGSplitViewController * split = [[MGSplitViewController alloc]init];
+    [split setDividerView:nil];
     [list setNowCategory:category];
     [split setSplitPosition:200.0];
     [split setShowsMasterInPortrait:YES];
@@ -191,11 +198,9 @@
     
     NSArray * nameArry = [NSArray arrayWithObjects:@"英雄联盟",@"dota",@"dota2",@"魔兽争霸3",@"星际大战2", nil];
     MGSplitViewController * splitViewController = (MGSplitViewController *)viewController;
-        [splitViewController setDividerStyle:MGSplitViewDividerStylePaneSplitter];
-        //[splitViewController setDividerView:nil];
+ 
     ListViewController * list= [[splitViewController viewControllers]objectAtIndex:0];
 //每次点击都要清空数据
-    [list.nowCategory.allInforArry removeAllObjects];
     [list setCategory:[nameArry objectAtIndex:tabBarController.selectedIndex-1]];
     [list requestAuthorListWithCategory:[nameArry objectAtIndex:tabBarController.selectedIndex-1]];
     }
